@@ -25,7 +25,15 @@ p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
 }
+a {
+    color: #212529; /* Default link color (darker) */
+    text-decoration: underline;
+    transition: color 0.2s; /* Smooth color transition */
+}
 
+a:hover {
+    color: #000000; /* Darken further on hover */
+}
 .btn {
     padding: 10px 20px;
     border: 1px solid #212529;
