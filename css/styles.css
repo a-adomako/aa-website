@@ -1,6 +1,6 @@
 body {
     background-color: #f8f9fa;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -8,43 +8,85 @@ body {
     justify-content: center;
     align-items: center;
     color: #212529;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
 }
 
-.intro-container {
-    text-align: center;
+.profile-image {
+    margin-bottom: 1.5rem;
+}
+
+.avatar-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: #3d5a80;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     max-width: 600px;
-    margin: 0 auto;
+    margin-bottom: 2rem;
 }
 
 h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: #2b2d42;
 }
 
 p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
 }
+
+.tagline {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #3d5a80;
+}
+
 a {
-    color: #212529; /* Default link color (darker) */
-    text-decoration: underline;
-    transition: color 0.2s; /* Smooth color transition */
+    color: #3d5a80;
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
 a:hover {
-    color: #000000; /* Darken further on hover */
+    color: #253651;
 }
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
 .btn {
-    padding: 10px 20px;
-    border: 1px solid #212529;
-    border-radius: 5px;
+    padding: 10px 25px;
+    border: 2px solid #3d5a80;
+    border-radius: 30px;
     background-color: transparent;
-    color: #212529;
+    color: #3d5a80;
     text-decoration: none;
-    transition: background-color 0.2s, color 0.2s;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .btn:hover {
-    background-color: #212529;
+    background-color: #3d5a80;
     color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
