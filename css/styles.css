@@ -84,7 +84,6 @@ a:hover {
     gap: 1.5rem;
     justify-content: center;
     margin-top: 1rem;
-    margin-bottom: 1.5rem;
 }
 
 .btn {
@@ -104,20 +103,4 @@ a:hover {
 .btn:hover {
     background-color: #333333;
     color: #ffffff;
-}
-
-.email-contact {
-    margin-top: 0.5rem;
-}
-
-.email-link {
-    font-size: 0.9rem;
-    color: #555555;
-    letter-spacing: 0.3px;
-    transition: color 0.2s;
-}
-
-.email-link:hover {
-    color: #000000;
-    opacity: 1;
 }
