@@ -27,13 +27,32 @@ body::before {
     padding: 0 20px;
 }
 
-.home-button {
+.menu-links {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1100;
-    width: 40px;
-    height: 40px;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px 0;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.right-links {
+    text-align: right;
+}
+
+.home-button {
+    width: 30px;
+    height: 30px;
     background-color: #222222;
     color: white;
     border-radius: 50%;
@@ -42,6 +61,7 @@ body::before {
     align-items: center;
     text-decoration: none;
     font-weight: bold;
+    font-size: 0.8rem;
     transition: transform 0.2s, opacity 0.2s;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -50,17 +70,6 @@ body::before {
     transform: scale(1.05);
     opacity: 0.9;
     color: white;
-}
-
-.menu-links {
-    margin: 20px 0;
-    position: fixed;
-    top: 20px;
-    width: 100%;
-    left: 0;
-    z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px 0;
 }
 
 .menu-link {
@@ -89,6 +98,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: calc(40vh + 60px); /* Add extra padding for the menu */
 }
 
 section:last-child {
