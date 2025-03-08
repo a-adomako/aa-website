@@ -19,58 +19,44 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home">AT</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#updates">What I've been up to</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
+    <div class="container">
+        <div class="menu-links text-center pt-4">
+            <a href="#updates" class="menu-link">What I've been up to</a>
+            <a href="#contact" class="menu-link">Contact</a>
+        </div>
+
+        <section id="home" class="my-5 py-5">
+            <div class="profile-image text-center">
+                <div class="avatar-placeholder">AT</div>
             </div>
-        </div>
-    </nav>
+            <div class="text-center">
+                <h1>👋 Hi, I'm Aaron</h1>
+                <p class="tagline">I love data, automation and artificial intelligence.</p>
+                <p>Currently learning Python and expanding my skills in AI.</p>
+            </div>
+            <div class="social-links text-center">
+                <a href="https://www.linkedin.com/in/aarontabi/" class="btn" target="_blank">LinkedIn</a>
+                <a href="https://x.com/aaronatabi" class="btn" target="_blank">X (Twitter)</a>
+            </div>
+        </section>
 
-    <section id="home" class="d-flex flex-column justify-content-center align-items-center vh-100">
-        <div class="profile-image">
-            <div class="avatar-placeholder">AT</div>
-        </div>
-        <div class="container text-center">
-            <h1>👋 Hi, I'm Aaron</h1>
-            <p class="tagline">I love data, automation and artificial intelligence.</p>
-            <p>Currently learning Python and expanding my skills in AI.</p>
-        </div>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/aarontabi/" class="btn" target="_blank">LinkedIn</a>
-            <a href="https://x.com/aaronatabi" class="btn" target="_blank">X (Twitter)</a>
-        </div>
-    </section>
+        <section id="updates" class="my-5 py-5">
+            <div>
+                <h2 class="text-center mb-4">What I've been up to</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl.</p>
+            </div>
+        </section>
 
-    <section id="updates" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">What I've been up to</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl.</p>
-        </div>
-    </section>
-
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4">Contact</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl.</p>
-        </div>
-    </section>
+        <section id="contact" class="my-5 py-5">
+            <div>
+                <h2 class="text-center mb-4">Contact</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl. Nullam euismod, nisl eget aliquam ultricies, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl.</p>
+            </div>
+        </section>
+    </div>
     
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

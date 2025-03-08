@@ -6,6 +6,7 @@ body {
     color: #333333;
     position: relative;
     overflow-x: hidden;
+    max-width: 100%;
 }
 
 body::before {
@@ -21,43 +22,45 @@ body::before {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.navbar {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 15px 0;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+.container {
+    max-width: 800px;
+    padding: 0 20px;
 }
 
-.navbar-brand {
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: #222222;
-    letter-spacing: -0.5px;
+.menu-links {
+    margin: 20px 0;
 }
 
-.nav-link {
+.menu-link {
     color: #333333;
+    text-decoration: none;
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.5px;
     padding: 0.5rem 1rem;
+    margin: 0 10px;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
 }
 
-.nav-link:hover {
+.menu-link:hover {
     color: #111111;
-}
-
-#updates, #contact {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    border-bottom: 1px solid #111111;
 }
 
 section {
-    margin-bottom: 0;
+    margin: 60px 0;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+section:last-child {
+    border-bottom: none;
 }
 
 section h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 400;
     letter-spacing: -0.5px;
     margin-bottom: 2rem;
