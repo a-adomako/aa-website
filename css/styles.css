@@ -27,6 +27,31 @@ body::before {
     padding: 0 20px;
 }
 
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+    width: 40px;
+    height: 40px;
+    background-color: #222222;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s, opacity 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.home-button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+    color: white;
+}
+
 .menu-links {
     margin: 20px 0;
     position: fixed;
