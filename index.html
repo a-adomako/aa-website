@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Umami Analytics -->
+    <script defer src="https://cloud.umami.is/script.js"
+        data-website-id="9504de61-ccac-483d-a3b0-4f2b205542ce"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XPM3ZPX03S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XPM3ZPX03S');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aaron Tabi — I build AI and automation systems that eliminate busywork. Working at the intersection of AI, automation, and marketing.">
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aaron Tabi — AI & Automation">
+    <meta property="og:description" content="I build AI and automation systems that eliminate busywork. Working at the intersection of AI, automation, and marketing.">
+    <meta property="og:url" content="https://aarontabi.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@aaronatabi">
+    <meta name="twitter:title" content="Aaron Tabi — AI & Automation">
+    <meta name="twitter:description" content="I build AI and automation systems that eliminate busywork.">
+
+    <title>Aaron Tabi</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111'/><text x='50' y='68' font-family='Inter,system-ui,sans-serif' font-size='48' font-weight='600' fill='white' text-anchor='middle'>AT</text></svg>">
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            const theme = savedTheme || systemTheme;
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="menu-links">
+        <div class="menu-container">
+            <a href="#home" class="home-button">AT</a>
+            <div class="right-links">
+                <a href="#work" class="menu-link">Work</a>
+                <a href="#updates" class="menu-link">Journey</a>
+                <a href="#contact" class="menu-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <!-- Sun Icon (shown in dark mode) -->
+                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon (shown in light mode) -->
+                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <h1 class="mega-headline" data-parallax="0.02">
+                I'm Aaron. I automate the boring parts so teams can do the interesting ones.
+            </h1>
+            <p class="hero-subtext" data-parallax="0.01">
+                Building AI tools and automation systems. IT background, marketing instincts, and a bias toward shipping things that work.
+            </p>
+            <div class="hero-buttons" data-parallax="0.005">
+                <a href="#contact" class="btn btn-primary">Let's have a chat</a>
+                <a href="#updates" class="btn btn-secondary">See my journey</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <div class="container">
+            <h2>Things I've Built</h2>
+            <div class="project-list">
+                <div class="project">
+                    <h3>Crypto Trade Tracking & Backtesting Pipeline</h3>
+                    <p>End-to-end automation that ingested trader tweets, classified real entries, extracted trade parameters, and validated outcomes against historical market data. LLM-driven, multi-stage pipeline.</p>
+                </div>
+                <div class="project">
+                    <h3>Content Management Automation</h3>
+                    <p>Autonomously processed 19,986 files across cloud storage and 4 tracking sheets, saving ~35 hours/week with 98% error reduction. Built with producer/consumer architecture and idempotency controls.</p>
+                </div>
+                <div class="project">
+                    <h3>Automated Newsletter System</h3>
+                    <p>Email-to-newsletter pipeline that merged incoming articles with personal stories, generated HTML-formatted wellness content using GPT, tracked story usage, and logged outputs with zero manual intervention.</p>
+                </div>
+                <div class="project">
+                    <h3>Cold Outreach Infrastructure</h3>
+                    <p>Built infrastructure reaching 10,000+ new leads per month. Set up DNS, DMARC, SPF, and domain warming from scratch. Managed campaigns across multiple channels with AI-powered personalization.</p>
+                </div>
+                <div class="project">
+                    <h3>Influencer Sign-up Router</h3>
+                    <p>Used GPT to clean social handles and automatically route submissions to country-specific shipping lists across 7 regions. Eliminated manual data entry for campaign logistics.</p>
+                </div>
+                <div class="project">
+                    <h3>Multilingual Outreach Tool</h3>
+                    <p>Custom GPT enabling non-Dutch speakers to communicate fluently with Dutch creators, eliminating language barriers in outreach for international campaigns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="updates">
+        <div class="container">
+            <h2>The Journey So Far</h2>
+            <ul class="timeline">
+                <li>
+                    <strong>2024 – Now</strong>
+                    <span>Going deep on AI and automation. Building tools that do in minutes what used to take hours. This is what I want to spend the next decade on.</span>
+                </li>
+                <li>
+                    <strong>Late 2023</strong>
+                    <span>Joined an agency to see how the model works from the inside. Managed delivery across multiple client accounts, coordinated a distributed team across 4 time zones, wrote SOPs and ran workshops to upskill the team.</span>
+                </li>
+                <li>
+                    <strong>Late 2022</strong>
+                    <span>Worked at an e-commerce company supporting health & wellness brands. Built influencer-to-affiliate-to-partner funnels and maintained datasets across 10+ client accounts. Saw firsthand how much time gets wasted on repetitive ops.</span>
+                </li>
+                <li>
+                    <strong>2022</strong>
+                    <span>Started an agency. It failed. But I learned how e-commerce ops actually work from the inside, and that shaped everything I've built since.</span>
+                </li>
+                <li>
+                    <strong>2020 – 2022</strong>
+                    <span>Spent two years obsessively studying marketing: positioning, copywriting, growth loops, the full stack. It changed how I think about building anything.</span>
+                </li>
+                <li>
+                    <strong>2020</strong>
+                    <span>Graduated with a degree in Information Technology. The technical foundation that makes everything else possible.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="contact-intro">Want to work together, talk about AI and automation, or just say hello? I'm always happy to hear from interesting people.</p>
+            <div class="contact-cta">
+                <a href="mailto:aarontabi@gmail.com" class="btn btn-primary">Let's have a chat</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/aarontabi/" class="btn btn-social" target="_blank">LinkedIn</a>
+                <a href="https://x.com/aaronatabi" class="btn btn-social" target="_blank">X (Twitter)</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const toggleButton = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+
+        function updateIcons(theme) {
+            if (theme === 'dark') {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            } else {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            }
+        }
+
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        updateIcons(currentTheme);
+
+        toggleButton.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcons(newTheme);
+        });
+
+        // Hero parallax — mouse tracking with depth layers
+        const hero = document.querySelector('.hero-section');
+        const parallaxEls = hero.querySelectorAll('[data-parallax]');
+        let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+        let rafId = null;
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function updateParallax() {
+            currentX = lerp(currentX, targetX, 0.08);
+            currentY = lerp(currentY, targetY, 0.08);
+
+            parallaxEls.forEach(el => {
+                const speed = parseFloat(el.dataset.parallax);
+                const x = currentX * speed;
+                const y = currentY * speed;
+                el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+            });
+
+            rafId = requestAnimationFrame(updateParallax);
+        }
+
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            targetX = (e.clientX - rect.left - rect.width / 2);
+            targetY = (e.clientY - rect.top - rect.height / 2);
+        });
+
+        hero.addEventListener('mouseleave', () => {
+            targetX = 0;
+            targetY = 0;
+        });
+
+        rafId = requestAnimationFrame(updateParallax);
+    </script>
+</body>
+
+</html>
