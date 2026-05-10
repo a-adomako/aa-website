@@ -88,7 +88,7 @@ main {
 
 .hero {
     padding-top: calc(7rem + 60px);
-    padding-bottom: 6rem;
+    padding-bottom: 2.5rem;
 }
 
 .hero h1 {
@@ -108,81 +108,9 @@ main {
     max-width: 500px;
 }
 
-/* ========================================
-   Section Labels
-   ======================================== */
-
 section {
-    padding-top: 5rem;
+    padding-top: 0;
     padding-bottom: 5rem;
-}
-
-.label {
-    display: block;
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #bbb;
-    margin-bottom: 2.5rem;
-}
-
-/* ========================================
-   Work / Projects
-   ======================================== */
-
-.project-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2.25rem;
-}
-
-.project h3 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #111;
-    margin-bottom: 0.4rem;
-    line-height: 1.4;
-}
-
-.project p {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.7;
-}
-
-/* ========================================
-   Journey / Timeline
-   ======================================== */
-
-.timeline {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.timeline li {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 1.5rem;
-    align-items: start;
-}
-
-.date {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #bbb;
-    padding-top: 0.25rem;
-    line-height: 1.4;
-}
-
-.timeline li span:last-child {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.7;
 }
 
 /* ========================================
@@ -251,10 +179,5 @@ section {
 
     .hero h1 {
         font-size: 1.75rem;
-    }
-
-    .timeline li {
-        grid-template-columns: 1fr;
-        gap: 0.3rem;
     }
 }
