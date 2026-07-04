@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Umami Analytics -->
+    <script defer src="https://cloud.umami.is/script.js"
+        data-website-id="9504de61-ccac-483d-a3b0-4f2b205542ce"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XPM3ZPX03S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XPM3ZPX03S');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A project by Aaron Tabi — AI, automation and systems work.">
+
+    <title>Aaron Tabi — Project</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111'/><text x='50' y='68' font-family='Inter,system-ui,sans-serif' font-size='48' font-weight='600' fill='white' text-anchor='middle'>AT</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="site-name">Aaron Tabi</a>
+        <div></div>
+        <a href="index.html#tab=projects" class="nav-side-link">All projects</a>
+    </nav>
+
+    <main>
+        <article class="project-page" id="project-page">
+            <p class="pp-detail">Loading&hellip;</p>
+        </article>
+    </main>
+
+    <script src="js/projects.js"></script>
+    <script>
+        (function renderProjectPage() {
+            const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            const root = document.getElementById('project-page');
+            const slug = new URLSearchParams(location.search).get('p');
+            const p = (window.PROJECTS || []).find(x => x.slug === slug);
+
+            if (!p) {
+                document.title = 'Aaron Tabi — Project not found';
+                root.innerHTML = `
+                    <a class="back-link" href="index.html#tab=projects">&larr; All projects</a>
+                    <h1 class="pp-title">Project not found</h1>
+                    <p class="pp-detail">That link doesn't match a project. Head back to the full list.</p>`;
+                return;
+            }
+
+            document.title = 'Aaron Tabi — ' + p.name;
+            try {
+                if (window.gtag) gtag('event', 'project_page_view', { project: p.name });
+                if (window.umami && umami.track) umami.track('project_page_view', { project: p.name });
+            } catch (e) { }
+
+            const tags = (p.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('');
+            const link = p.link && p.link.url
+                ? `<a class="project-link" href="${esc(p.link.url)}" target="_blank" rel="noopener">${esc(p.link.label || 'View')} &rarr;</a>`
+                : '';
+            const updates = (p.updates && p.updates.length)
+                ? `<section class="pp-updates">
+                        <h2>Updates</h2>
+                        ${p.updates.map(u => `
+                        <div class="update-item">
+                            <div class="update-date">${esc(u.date)}</div>
+                            <p>${esc(u.note)}</p>
+                        </div>`).join('')}
+                    </section>`
+                : '';
+
+            root.innerHTML = `
+                <a class="back-link" href="index.html#tab=projects">&larr; All projects</a>
+                <h1 class="pp-title">${esc(p.name)}</h1>
+                ${p.year ? `<p class="pp-meta">${esc(p.year)}</p>` : ''}
+                <p class="pp-tagline">${esc(p.tagline || '')}</p>
+                <p class="pp-detail">${esc(p.detail || '')}</p>
+                ${p.highlights && p.highlights.length ? `<ul class="project-highlights">${p.highlights.map(h => `<li>${esc(h)}</li>`).join('')}</ul>` : ''}
+                ${tags ? `<div class="project-tags">${tags}</div>` : ''}
+                ${link}
+                ${updates}`;
+        })();
+    </script>
+</body>
+
+</html>
