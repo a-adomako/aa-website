@@ -3,6 +3,26 @@
 // To log new progress on a project, append { date: "...", note: "..." } to its `updates` array.
 window.PROJECTS = [
             {
+                slug: "creator-discovery-platform",
+                name: "Creator Discovery Platform",
+                year: "2026",
+                tagline: "An AI-orchestrated platform where a team discovers, vets and delivers influencer creators — and the system decides who works on what.",
+                detail: "A full-stack operations platform (Next.js + Supabase Postgres) that merged two systems into one app on one database: an AI 'apportioner' that assigns campaign work — an LLM proposes who should take what, deterministic capacity math clamps the suggestion, and a human one-click approves — and the spreadsheet-style surface where the team finds and peer-vets Instagram creators. Every action is a timestamped event, so each member's real speed, trust and niche fit are derived live from the work itself and feed the next assignment decision. Three roles (admin, discovery member, campaign manager) share one pool where the unit of state is the (client, creator) pair, making cross-discoverer dedup structural rather than procedural.",
+                highlights: [
+                    "LLM-assisted work assignment: AI suggests the split, capacity math enforces the limits, a human approves — with Claude preferred and an OpenAI fallback",
+                    "Event-sourced trust and speed: peer vetting, QA sweeps and appeal rechecks all feed shrinkage-based trust scores that gate who can ship work",
+                    "Proactive capacity outlook: a 4-week demand-vs-supply projection with early-warning signals and a scheduling-vs-staffing verdict",
+                    "Demand forecasting that prices discovery asks from measured opt-in and vetting-survival rates instead of flat assumptions",
+                    "~169k-creator day-zero import across 18 clients; 160+ migrations, row-level security on every table, all writes through audited RPCs",
+                    "Deployed on Vercel with functions co-located to the London database, so every server query is a same-region hop"
+                ],
+                tags: ["Next.js", "Supabase", "Claude API", "Postgres", "AI Orchestration"],
+                link: { label: "View", url: "" },
+                updates: [
+                    { date: "July 2026", note: "Shipped the proactive layer — the 4-week capacity outlook now issues a scheduling-vs-staffing verdict with per-week fix-it levers — plus trust scoring v2: terrain-aware, per-niche rates with no threshold cliffs." }
+                ]
+            },
+            {
                 slug: "pantheon-platform",
                 name: "Pantheon Platform",
                 year: "2026",
