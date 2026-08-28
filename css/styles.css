@@ -237,12 +237,10 @@ section {
 }
 
 .year-progress-day[data-state="today"]::before {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     background: #800020;
-    box-shadow:
-        0 0 0 2px #fff,
-        0 0 0 3px rgba(128, 0, 32, 0.65);
+    box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.14);
 }
 
 .year-progress-day:hover::before,
