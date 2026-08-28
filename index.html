@@ -83,6 +83,17 @@
                 <p class="building-line">Building <a href="https://pantheonadvertising.com" target="_blank" rel="noopener">Pantheon</a> &rarr;</p>
             </section>
 
+            <section id="year-progress" class="year-progress" aria-labelledby="year-progress-title">
+                <div class="year-progress-heading">
+                    <h2 id="year-progress-title">Year progress</h2>
+                    <p class="year-progress-year" id="year-progress-year" aria-label="Current year"></p>
+                </div>
+                <div class="year-progress-grid" id="year-progress-grid" aria-label="Days of the current year"></div>
+                <p class="year-progress-selection" id="year-progress-selection" role="status" aria-live="polite"></p>
+                <p class="year-progress-summary" id="year-progress-summary"></p>
+                <p class="year-progress-counts" id="year-progress-counts"></p>
+            </section>
+
             <section id="contact">
                 <p>Want to work together or talk about AI and automation? <a href="mailto:aarontabi@gmail.com">Send me an
                         email</a>.</p>
@@ -233,6 +244,7 @@
             if (m && m[1]) activateTab(m[1], { scroll: false });
         })();
     </script>
+    <script src="js/year-progress.js"></script>
 </body>
 
 </html>
