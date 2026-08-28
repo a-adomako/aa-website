@@ -229,7 +229,7 @@ section {
     height: 6px;
     border-radius: 50%;
     background: #dedede;
-    transition: transform 0.15s ease, background-color 0.15s ease;
+    transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .year-progress-day[data-state="completed"]::before {
@@ -237,16 +237,27 @@ section {
 }
 
 .year-progress-day[data-state="today"]::before {
-    width: 8px;
-    height: 8px;
-    background: #fff;
-    border: 2px solid #800020;
+    width: 6px;
+    height: 6px;
+    background: #800020;
+    box-shadow:
+        0 0 0 2px #fff,
+        0 0 0 3px rgba(128, 0, 32, 0.65);
 }
 
 .year-progress-day:hover::before,
 .year-progress-day:focus-visible::before,
 .year-progress-day[data-selected="true"]::before {
     transform: scale(1.35);
+}
+
+.year-progress-day[data-state="today"][data-selected="true"]::before {
+    transform: scale(1);
+}
+
+.year-progress-day[data-state="today"]:hover::before,
+.year-progress-day[data-state="today"]:focus-visible::before {
+    transform: scale(1.12);
 }
 
 .year-progress-day:focus-visible {
