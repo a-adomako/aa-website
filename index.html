@@ -61,7 +61,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/styles.css?v=3">
+    <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 
 <body>
@@ -71,6 +71,10 @@
             <button class="tab-link active" id="tabbtn-home" data-tab="home" role="tab" aria-selected="true" aria-controls="tab-home">Home</button>
             <button class="tab-link" id="tabbtn-projects" data-tab="projects" role="tab" aria-selected="false" aria-controls="tab-projects">Projects</button>
         </div>
+        <!-- Change the city name and data-timezone together (IANA zone, e.g. Europe/London) -->
+        <p class="local-time" id="local-time" data-timezone="Africa/Accra">
+            <span class="local-time-dot" aria-hidden="true"></span>Accra&nbsp;·&nbsp;<time class="local-time-clock"></time>
+        </p>
     </nav>
 
     <main>
@@ -83,15 +87,32 @@
                 <p class="building-line">Building <a href="https://pantheonadvertising.com" target="_blank" rel="noopener">Pantheon</a> &rarr;</p>
             </section>
 
-            <section id="year-progress" class="year-progress" aria-labelledby="year-progress-title">
-                <div class="year-progress-heading">
-                    <h2 id="year-progress-title">Year progress</h2>
-                    <p class="year-progress-year" id="year-progress-year" aria-label="Current year"></p>
+            <section id="selected-work" class="selected-work" aria-labelledby="selected-work-title">
+                <div class="section-heading">
+                    <h2 id="selected-work-title" class="section-label">Selected work</h2>
+                    <a href="#" class="section-link" data-tab-link="projects">All projects &rarr;</a>
                 </div>
-                <div class="year-progress-grid" id="year-progress-grid" aria-label="Days of the current year"></div>
-                <p class="year-progress-selection" id="year-progress-selection" role="status" aria-live="polite"></p>
-                <p class="year-progress-summary" id="year-progress-summary"></p>
-                <p class="year-progress-counts" id="year-progress-counts"></p>
+                <ul class="work-list" id="work-list"></ul>
+            </section>
+
+            <section id="now" class="now" aria-labelledby="now-title">
+                <div class="section-heading">
+                    <h2 id="now-title" class="section-label">Now</h2>
+                    <p class="section-meta">Updated Oct 2026</p>
+                </div>
+                <dl class="now-list">
+                    <div><dt>Focused on</dt><dd>[What you're focused on this month]</dd></div>
+                    <div><dt>Learning</dt><dd>[What you're learning]</dd></div>
+                    <div><dt>Reading</dt><dd>[What you're reading]</dd></div>
+                </dl>
+            </section>
+
+            <section id="year-progress" class="year-progress" aria-labelledby="year-progress-title">
+                <div class="year-progress-row">
+                    <h2 id="year-progress-title" class="section-label"><span class="sr-only">Year progress, </span><span id="year-progress-year"></span></h2>
+                    <div class="year-progress-bar" id="year-progress-bar" role="img"></div>
+                    <p class="year-progress-status" id="year-progress-status" aria-hidden="true"></p>
+                </div>
             </section>
 
             <section id="contact">
@@ -157,6 +178,21 @@
             }).join('');
         })();
 
+        // ===== Selected work on Home (first three entries in js/projects.js) =====
+        (function renderSelectedWork() {
+            const list = document.getElementById('work-list');
+            if (!list) return;
+            const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            list.innerHTML = PROJECTS.slice(0, 3).map(p => `
+                <li>
+                    <a class="work-item" href="project.html?p=${esc(p.slug)}" data-name="${esc(p.name)}">
+                        <span class="work-name">${esc(p.name)}</span>
+                        <span class="work-tagline">${esc(p.tagline || '')}</span>
+                        <span class="work-year">${esc(p.year || '')}</span>
+                    </a>
+                </li>`).join('');
+        })();
+
         // ===== Analytics events (GA + Umami) =====
         function track(name, params) {
             try {
@@ -170,6 +206,8 @@
             a.addEventListener('click', () => track('social_click', { network: a.textContent.trim() })));
         document.querySelectorAll('.building-line a').forEach(a =>
             a.addEventListener('click', () => track('pantheon_click')));
+        document.querySelectorAll('.work-item').forEach(a =>
+            a.addEventListener('click', () => track('selected_work_click', { project: a.dataset.name })));
 
         // ===== Expand / collapse all projects =====
         (function projectToggle() {
@@ -244,7 +282,8 @@
             if (m && m[1]) activateTab(m[1], { scroll: false });
         })();
     </script>
-    <script src="js/year-progress.js"></script>
+    <script src="js/year-progress.js?v=2"></script>
+    <script src="js/local-time.js"></script>
 </body>
 
 </html>

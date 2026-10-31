@@ -58,6 +58,34 @@ nav {
     opacity: 0.6;
 }
 
+.local-time {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    font-size: 0.8125rem;
+    color: #888;
+    font-variant-numeric: tabular-nums;
+}
+
+.local-time-dot {
+    width: 7px;
+    height: 7px;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    background: #c4c4c4;
+    transition: background-color 0.3s;
+}
+
+.local-time[data-daytime="true"] .local-time-dot {
+    background: #22a55a;
+    box-shadow: 0 0 0 3px rgba(34, 165, 90, 0.15);
+    animation: daylight 3s ease-in-out infinite;
+}
+
+@keyframes daylight {
+    50% { box-shadow: 0 0 0 5px rgba(34, 165, 90, 0.05); }
+}
+
 /* ========================================
    Tabs (Home / Projects)
    ======================================== */
@@ -174,115 +202,162 @@ section {
 }
 
 /* ========================================
-   Year progress
+   Section headings (shared)
    ======================================== */
 
-.year-progress {
-    padding-bottom: 5rem;
-}
-
-.year-progress-heading {
+.section-heading {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
-.year-progress-heading h2 {
+.section-label {
     font-size: 0.8125rem;
     font-weight: 500;
     color: #888;
     letter-spacing: 0.01em;
 }
 
-.year-progress-year {
+.section-meta,
+.section-link {
     font-size: 0.8125rem;
-    font-variant-numeric: tabular-nums;
     color: #aaa;
 }
 
-.year-progress-grid {
+.section-link {
+    transition: color 0.15s;
+}
+
+.section-link:hover {
+    color: #111;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ========================================
+   Selected work
+   ======================================== */
+
+.work-list {
+    list-style: none;
+}
+
+.work-item {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(12px, 1fr));
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid #eee;
+}
+
+.work-list li:last-child .work-item {
+    border-bottom: 1px solid #eee;
+}
+
+.work-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #111;
+}
+
+.work-tagline {
+    font-size: 0.875rem;
+    color: #999;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.15s;
+}
+
+.work-year {
+    font-size: 0.8125rem;
+    color: #bbb;
+    font-variant-numeric: tabular-nums;
+}
+
+.work-item:hover .work-tagline {
+    color: #555;
+}
+
+/* ========================================
+   Now
+   ======================================== */
+
+.now-list > div {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 1rem;
+    padding: 0.35rem 0;
+}
+
+.now-list dt {
+    font-size: 0.875rem;
+    color: #999;
+}
+
+.now-list dd {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* ========================================
+   Year progress
+   ======================================== */
+
+.year-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.year-progress-row .section-label {
+    font-variant-numeric: tabular-nums;
+}
+
+.year-progress-bar {
+    flex: 1;
+    display: flex;
     gap: 3px;
-    width: 100%;
+    padding: 6px 0;
+    cursor: crosshair;
 }
 
-.year-progress-day {
+.year-progress-month {
     position: relative;
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 12px;
-    padding: 0;
-    border: 0;
-    border-radius: 50%;
-    background: transparent;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background: #e8e8e8;
+    overflow: hidden;
 }
 
-.year-progress-day::before {
+.year-progress-month::after {
     content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #dedede;
-    transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.year-progress-day[data-state="completed"]::before {
+    position: absolute;
+    inset: 0;
+    width: calc(var(--fill, 0) * 100%);
     background: #222;
 }
 
-.year-progress-day[data-state="today"]::before {
-    width: 7px;
-    height: 7px;
+.year-progress-month[data-state="current"]::after {
     background: #800020;
-    box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.14);
 }
 
-.year-progress-day:hover::before,
-.year-progress-day:focus-visible::before,
-.year-progress-day[data-selected="true"]::before {
-    transform: scale(1.35);
-}
-
-.year-progress-day[data-state="today"][data-selected="true"]::before {
-    transform: scale(1);
-}
-
-.year-progress-day[data-state="today"]:hover::before,
-.year-progress-day[data-state="today"]:focus-visible::before {
-    transform: scale(1.12);
-}
-
-.year-progress-day:focus-visible {
-    outline: 1px solid #800020;
-    outline-offset: 2px;
-}
-
-.year-progress-selection {
-    min-height: 1.4em;
-    margin-top: 1.25rem;
+.year-progress-status {
+    min-width: 8.5em;
+    text-align: right;
     font-size: 0.8125rem;
-    font-weight: 500;
-    color: #555;
-    font-variant-numeric: tabular-nums;
-}
-
-.year-progress-summary {
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
-    color: #222;
-    font-variant-numeric: tabular-nums;
-}
-
-.year-progress-counts {
-    margin-top: 0.2rem;
-    font-size: 0.8125rem;
-    color: #999;
+    color: #888;
     font-variant-numeric: tabular-nums;
 }
 
@@ -640,6 +715,18 @@ section {
         padding-bottom: 4rem;
     }
 
+    .work-item {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .work-tagline {
+        display: none;
+    }
+
+    .now-list > div {
+        grid-template-columns: 6rem 1fr;
+    }
+
     .hero h1 {
         font-size: 1.75rem;
     }
@@ -679,9 +766,19 @@ section {
         padding-top: calc(4rem + 110px);
     }
 
-    .year-progress-grid {
-        grid-template-columns: repeat(auto-fill, minmax(11px, 1fr));
-        gap: 2px;
+    .year-progress-row {
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+    }
+
+    .year-progress-bar {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .year-progress-status {
+        min-width: 0;
+        margin-left: auto;
     }
 }
 
