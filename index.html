@@ -61,10 +61,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/styles.css?v=4">
+    <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 
 <body>
+    <div class="year-line" id="year-line" aria-hidden="true"></div>
+
     <nav>
         <a href="#" class="site-name" data-tab-link="home">Aaron Tabi</a>
         <div class="tabs" role="tablist">
@@ -73,56 +75,35 @@
         </div>
         <!-- Change the city name and data-timezone together (IANA zone, e.g. Europe/London) -->
         <p class="local-time" id="local-time" data-timezone="Africa/Accra">
-            <span class="local-time-dot" aria-hidden="true"></span>Accra&nbsp;·&nbsp;<time class="local-time-clock"></time>
+            <span class="local-time-dot" aria-hidden="true"></span>Accra&nbsp;·&nbsp;<time class="local-time-clock"></time><span class="local-time-status"></span>
         </p>
     </nav>
 
     <main>
         <!-- HOME -->
         <div class="tab-panel active" id="tab-home" role="tabpanel" aria-labelledby="tabbtn-home">
-            <section id="home" class="hero">
-                <h1>👋 I'm Aaron. Excited about AI, automation and revolutionary technology, and how it helps us improve our work.</h1>
-                <p class="subtext">Currently building AI tools at Augmentum with a background in IT and a deep interest in
-                    business, marketing and using new tech to solve real everyday problems.</p>
+            <section id="home" class="statement">
+                <h1>
+                    <span class="statement-muted">Understand the business,</span>
+                    <span class="statement-muted">find the constraint,</span>
+                    <span>build a better system around it.</span>
+                </h1>
+                <p class="statement-body">I work at the intersection of operations, systems, data, revenue and AI. At
+                    Augmentum Media I lead a 7-person creator discovery team supporting 20+ influencer marketing
+                    campaigns, and build the systems that make it run.</p>
                 <p class="building-line">Building <a href="https://pantheonadvertising.com" target="_blank" rel="noopener">Pantheon</a> &rarr;</p>
             </section>
 
-            <section id="selected-work" class="selected-work" aria-labelledby="selected-work-title">
-                <div class="section-heading">
-                    <h2 id="selected-work-title" class="section-label">Selected work</h2>
-                    <a href="#" class="section-link" data-tab-link="projects">All projects &rarr;</a>
+            <footer id="contact" class="contact">
+                <div class="contact-email">
+                    <a href="mailto:aarontabi@gmail.com">aarontabi@gmail.com</a>
+                    <button type="button" class="copy-email" data-email="aarontabi@gmail.com">Copy</button>
                 </div>
-                <ul class="work-list" id="work-list"></ul>
-            </section>
-
-            <section id="now" class="now" aria-labelledby="now-title">
-                <div class="section-heading">
-                    <h2 id="now-title" class="section-label">Now</h2>
-                    <p class="section-meta">Updated Oct 2026</p>
-                </div>
-                <dl class="now-list">
-                    <div><dt>Focused on</dt><dd>[What you're focused on this month]</dd></div>
-                    <div><dt>Learning</dt><dd>[What you're learning]</dd></div>
-                    <div><dt>Reading</dt><dd>[What you're reading]</dd></div>
-                </dl>
-            </section>
-
-            <section id="year-progress" class="year-progress" aria-labelledby="year-progress-title">
-                <div class="year-progress-row">
-                    <h2 id="year-progress-title" class="section-label"><span class="sr-only">Year progress, </span><span id="year-progress-year"></span></h2>
-                    <div class="year-progress-bar" id="year-progress-bar" role="img"></div>
-                    <p class="year-progress-status" id="year-progress-status" aria-hidden="true"></p>
-                </div>
-            </section>
-
-            <section id="contact">
-                <p>Want to work together or talk about AI and automation? <a href="mailto:aarontabi@gmail.com">Send me an
-                        email</a>.</p>
                 <div class="social">
-                    <a href="https://www.linkedin.com/in/aarontabi/" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://x.com/aaronatabi" target="_blank" rel="noopener">X</a>
+                    <a href="https://www.linkedin.com/in/aarontabi/" target="_blank" rel="noopener">LinkedIn &nearr;</a>
+                    <a href="https://x.com/aaronatabi" target="_blank" rel="noopener">X &nearr;</a>
                 </div>
-            </section>
+            </footer>
         </div>
 
         <!-- PROJECTS -->
@@ -178,21 +159,6 @@
             }).join('');
         })();
 
-        // ===== Selected work on Home (first three entries in js/projects.js) =====
-        (function renderSelectedWork() {
-            const list = document.getElementById('work-list');
-            if (!list) return;
-            const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-            list.innerHTML = PROJECTS.slice(0, 3).map(p => `
-                <li>
-                    <a class="work-item" href="project.html?p=${esc(p.slug)}" data-name="${esc(p.name)}">
-                        <span class="work-name">${esc(p.name)}</span>
-                        <span class="work-tagline">${esc(p.tagline || '')}</span>
-                        <span class="work-year">${esc(p.year || '')}</span>
-                    </a>
-                </li>`).join('');
-        })();
-
         // ===== Analytics events (GA + Umami) =====
         function track(name, params) {
             try {
@@ -203,11 +169,19 @@
         document.querySelectorAll('a[href^="mailto:"]').forEach(a =>
             a.addEventListener('click', () => track('email_click')));
         document.querySelectorAll('.social a').forEach(a =>
-            a.addEventListener('click', () => track('social_click', { network: a.textContent.trim() })));
+            a.addEventListener('click', () => track('social_click', { network: a.textContent.replace('↗', '').trim() })));
         document.querySelectorAll('.building-line a').forEach(a =>
             a.addEventListener('click', () => track('pantheon_click')));
-        document.querySelectorAll('.work-item').forEach(a =>
-            a.addEventListener('click', () => track('selected_work_click', { project: a.dataset.name })));
+        document.querySelectorAll('.copy-email').forEach(btn =>
+            btn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(btn.dataset.email);
+                    btn.textContent = 'Copied ✓';
+                    btn.classList.add('copied');
+                    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+                    track('email_copy');
+                } catch (e) { location.href = 'mailto:' + btn.dataset.email; }
+            }));
 
         // ===== Expand / collapse all projects =====
         (function projectToggle() {
@@ -282,8 +256,8 @@
             if (m && m[1]) activateTab(m[1], { scroll: false });
         })();
     </script>
-    <script src="js/year-progress.js?v=2"></script>
-    <script src="js/local-time.js"></script>
+    <script src="js/year-progress.js?v=3"></script>
+    <script src="js/local-time.js?v=2"></script>
 </body>
 
 </html>

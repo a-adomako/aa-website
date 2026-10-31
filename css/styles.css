@@ -151,29 +151,47 @@ main {
 }
 
 /* ========================================
-   Hero
+   Statement (Home)
    ======================================== */
 
-.hero {
-    padding-top: calc(7rem + 60px);
-    padding-bottom: 2.5rem;
+/* Home fits one screen: statement in the middle, contact pinned to the bottom */
+#tab-home.active {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
 }
 
-.hero h1 {
-    font-size: 2.25rem;
+.statement {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(4rem + 60px) 0 4rem;
+}
+
+.statement h1 {
+    font-size: 2.5rem;
     font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
     color: #111;
-    margin-bottom: 1.5rem;
-    max-width: 580px;
+    margin-bottom: 2rem;
 }
 
-.subtext {
+.statement h1 span {
+    display: block;
+}
+
+.statement-muted {
+    color: #c2c2c2;
+}
+
+.statement-body {
     font-size: 1rem;
     color: #666;
     line-height: 1.7;
-    max-width: 500px;
+    max-width: 520px;
 }
 
 .building-line {
@@ -202,190 +220,84 @@ section {
 }
 
 /* ========================================
-   Section headings (shared)
+   Year line (top edge of the window)
    ======================================== */
 
-.section-heading {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1rem;
+.year-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    z-index: 101;
 }
 
-.section-label {
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: #888;
-    letter-spacing: 0.01em;
-}
-
-.section-meta,
-.section-link {
-    font-size: 0.8125rem;
-    color: #aaa;
-}
-
-.section-link {
-    transition: color 0.15s;
-}
-
-.section-link:hover {
-    color: #111;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-}
-
-/* ========================================
-   Selected work
-   ======================================== */
-
-.work-list {
-    list-style: none;
-}
-
-.work-item {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: baseline;
-    gap: 1rem;
-    padding: 0.85rem 0;
-    border-top: 1px solid #eee;
-}
-
-.work-list li:last-child .work-item {
-    border-bottom: 1px solid #eee;
-}
-
-.work-name {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #111;
-}
-
-.work-tagline {
-    font-size: 0.875rem;
-    color: #999;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: color 0.15s;
-}
-
-.work-year {
-    font-size: 0.8125rem;
-    color: #bbb;
-    font-variant-numeric: tabular-nums;
-}
-
-.work-item:hover .work-tagline {
-    color: #555;
-}
-
-/* ========================================
-   Now
-   ======================================== */
-
-.now-list > div {
-    display: grid;
-    grid-template-columns: 7rem 1fr;
-    gap: 1rem;
-    padding: 0.35rem 0;
-}
-
-.now-list dt {
-    font-size: 0.875rem;
-    color: #999;
-}
-
-.now-list dd {
-    font-size: 0.95rem;
-    color: #333;
-}
-
-/* ========================================
-   Year progress
-   ======================================== */
-
-.year-progress-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.year-progress-row .section-label {
-    font-variant-numeric: tabular-nums;
-}
-
-.year-progress-bar {
-    flex: 1;
-    display: flex;
-    gap: 3px;
-    padding: 6px 0;
-    cursor: crosshair;
-}
-
-.year-progress-month {
-    position: relative;
-    flex: 1;
-    height: 4px;
-    border-radius: 2px;
-    background: #e8e8e8;
-    overflow: hidden;
-}
-
-.year-progress-month::after {
+.year-line::before {
     content: "";
     position: absolute;
-    inset: 0;
-    width: calc(var(--fill, 0) * 100%);
-    background: #222;
-}
-
-.year-progress-month[data-state="current"]::after {
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: calc(var(--progress, 0) * 100%);
     background: #800020;
-}
-
-.year-progress-status {
-    min-width: 8.5em;
-    text-align: right;
-    font-size: 0.8125rem;
-    color: #888;
-    font-variant-numeric: tabular-nums;
 }
 
 /* ========================================
    Contact
    ======================================== */
 
-#contact {
-    padding-bottom: 8rem;
+.contact {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    padding: 2rem 0 2.5rem;
+    border-top: 1px solid #eee;
 }
 
-#contact p {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.7;
-    margin-bottom: 1.75rem;
+.contact-email {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
 }
 
-#contact p a {
+.contact-email a {
+    font-size: 1.375rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
     color: #111;
     text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: #ccc;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: #ddd;
     transition: text-decoration-color 0.15s;
 }
 
-#contact p a:hover {
+.contact-email a:hover {
     text-decoration-color: #111;
+}
+
+.copy-email {
+    font-family: inherit;
+    font-size: 0.75rem;
+    color: #999;
+    background: none;
+    border: 1px solid #e6e6e6;
+    border-radius: 999px;
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.copy-email:hover {
+    color: #111;
+    border-color: #ccc;
+}
+
+.copy-email.copied {
+    color: #22a55a;
+    border-color: rgba(34, 165, 90, 0.35);
 }
 
 .social {
@@ -706,29 +618,12 @@ section {
         padding: 0 1.25rem;
     }
 
-    .hero {
-        padding-top: calc(5rem + 60px);
-        padding-bottom: 4rem;
+    .statement h1 {
+        font-size: 1.875rem;
     }
 
-    .year-progress {
-        padding-bottom: 4rem;
-    }
-
-    .work-item {
-        grid-template-columns: minmax(0, 1fr) auto;
-    }
-
-    .work-tagline {
-        display: none;
-    }
-
-    .now-list > div {
-        grid-template-columns: 6rem 1fr;
-    }
-
-    .hero h1 {
-        font-size: 1.75rem;
+    .contact-email a {
+        font-size: 1.125rem;
     }
 
     .projects {
@@ -761,24 +656,16 @@ section {
         text-align: center;
     }
 
-    .hero,
+    .statement {
+        padding-top: calc(3rem + 110px);
+    }
+
+    .local-time-status {
+        display: none;
+    }
+
     .projects {
         padding-top: calc(4rem + 110px);
-    }
-
-    .year-progress-row {
-        flex-wrap: wrap;
-        gap: 0.5rem 1rem;
-    }
-
-    .year-progress-bar {
-        order: 3;
-        flex-basis: 100%;
-    }
-
-    .year-progress-status {
-        min-width: 0;
-        margin-left: auto;
     }
 }
 
