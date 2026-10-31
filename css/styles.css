@@ -62,6 +62,7 @@ nav {
     justify-self: end;
     display: flex;
     align-items: center;
+    white-space: nowrap;
     font-size: 0.8125rem;
     color: #888;
     font-variant-numeric: tabular-nums;
@@ -247,72 +248,161 @@ section {
    ======================================== */
 
 .contact {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
-    padding: 2rem 0 2.5rem;
+    padding: 1.75rem 0 2.25rem;
     border-top: 1px solid #eee;
 }
 
-.contact-email {
+.contact-bar {
     display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
-.contact-email a {
+.contact-toggle {
+    font-family: inherit;
     font-size: 1.375rem;
     font-weight: 500;
     letter-spacing: -0.02em;
     color: #111;
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    text-decoration-thickness: 1px;
-    text-decoration-color: #ddd;
-    transition: text-decoration-color 0.15s;
-}
-
-.contact-email a:hover {
-    text-decoration-color: #111;
-}
-
-.copy-email {
-    font-family: inherit;
-    font-size: 0.75rem;
-    color: #999;
     background: none;
-    border: 1px solid #e6e6e6;
-    border-radius: 999px;
-    padding: 0.2rem 0.6rem;
+    border: 0;
+    padding: 0;
     cursor: pointer;
-    transition: color 0.15s, border-color 0.15s;
 }
 
-.copy-email:hover {
+.contact-toggle-icon {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.contact-toggle:hover .contact-toggle-icon {
+    transform: translateX(3px);
+}
+
+.contact-toggle[aria-expanded="true"] .contact-toggle-icon {
+    transform: rotate(90deg);
+}
+
+.contact-form {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+    animation: fadeIn 0.25s ease-out;
+}
+
+.contact-form[hidden] {
+    display: none;
+}
+
+.contact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 0.95rem;
     color: #111;
-    border-color: #ccc;
+    background: #fafafa;
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    padding: 0.7rem 0.85rem;
+    resize: vertical;
+    transition: border-color 0.15s, background-color 0.15s;
 }
 
-.copy-email.copied {
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #aaa;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background: #fff;
+    border-color: #111;
+}
+
+.contact-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-send {
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    background: #111;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.55rem 1.4rem;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.contact-send:hover {
+    opacity: 0.85;
+}
+
+.contact-send:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.contact-status {
+    font-size: 0.8125rem;
+    color: #888;
+}
+
+.contact-status[data-state="ok"] {
     color: #22a55a;
-    border-color: rgba(34, 165, 90, 0.35);
+}
+
+.contact-status[data-state="error"] {
+    color: #800020;
 }
 
 .social {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .social a {
-    font-size: 0.875rem;
-    color: #888;
-    transition: color 0.15s;
+    display: block;
+    color: #111;
+    transition: opacity 0.15s;
 }
 
 .social a:hover {
-    color: #111;
+    opacity: 0.55;
+}
+
+.social svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* Hidden from people, visible to form-filling bots */
+.hp {
+    position: absolute;
+    left: -9999px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
 
 /* ========================================
@@ -622,8 +712,12 @@ section {
         font-size: 1.875rem;
     }
 
-    .contact-email a {
+    .contact-toggle {
         font-size: 1.125rem;
+    }
+
+    .contact-row {
+        grid-template-columns: 1fr;
     }
 
     .projects {
@@ -658,10 +752,6 @@ section {
 
     .statement {
         padding-top: calc(3rem + 110px);
-    }
-
-    .local-time-status {
-        display: none;
     }
 
     .projects {
