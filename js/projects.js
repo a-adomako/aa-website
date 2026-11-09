@@ -1,11 +1,16 @@
 // Projects data - the single source of truth for the Projects tab (index.html)
 // and the per-project detail pages (project.html?p=<slug>).
 // To log new progress on a project, append { date: "...", note: "..." } to its `updates` array.
+// `constraint` is the one-word bottleneck the project removed; `outcome` is the plain-language result
+// shown on the Projects list. `featured: true` puts a project in the top block.
 window.PROJECTS = [
             {
                 slug: "creator-discovery-platform",
                 name: "Creator Discovery Platform",
                 year: "2026",
+                constraint: "Capacity",
+                outcome: "AI splits the discovery work across the team. People approve it instead of planning it.",
+                featured: true,
                 tagline: "An AI-orchestrated platform where a team discovers, vets and delivers influencer creators — and the system decides who works on what.",
                 detail: "A full-stack operations platform (Next.js + Supabase Postgres) that merged two systems into one app on one database: an AI 'apportioner' that assigns campaign work — an LLM proposes who should take what, deterministic capacity math clamps the suggestion, and a human one-click approves — and the spreadsheet-style surface where the team finds and peer-vets Instagram creators. Every action is a timestamped event, so each member's real speed, trust and niche fit are derived live from the work itself and feed the next assignment decision. Three roles (admin, discovery member, campaign manager) share one pool where the unit of state is the (client, creator) pair, making cross-discoverer dedup structural rather than procedural.",
                 highlights: [
@@ -26,6 +31,9 @@ window.PROJECTS = [
                 slug: "pantheon-platform",
                 name: "Pantheon Platform",
                 year: "2026",
+                constraint: "Revenue",
+                outcome: "Outbound run as experiments, so campaigns get killed or scaled on reply data, not gut feel.",
+                featured: true,
                 tagline: "A full-stack data platform that tracks outbound campaign performance across every channel.",
                 detail: "A marketing data warehouse and API built on a bronze/gold architecture: raw webhook and scrape data lands in append-only tables, idempotent normalizers reshape it into a clean model, and a read API serves it. It treats outbound as experiments — ICP by Offer by Message by Channel, measured on reply rate — so campaigns can be killed or scaled on evidence rather than gut feel.",
                 highlights: [
@@ -45,6 +53,8 @@ window.PROJECTS = [
                 slug: "salesforce-lead-capture",
                 name: "Salesforce Lead Capture Extension",
                 year: "2026",
+                constraint: "Time",
+                outcome: "Built in 30 minutes against a two-week deadline, then turned into a paid product.",
                 tagline: "A Chrome extension that reads CRM screens with AI and files the data automatically.",
                 detail: "A Chrome extension that captures a CRM record on screen, sends the screenshot to Claude vision (via a forced tool-call for schema-guaranteed JSON), and writes the result to Google Sheets through a webhook. First built in about 30 minutes for one client, then evolved into a paid product for another — a queue runner that chains through a list of records on its own: opening each, auto-assigning it, capturing ~15 fields across lazy-loaded sections, and logging a contact note, with human-like throttling between actions.",
                 highlights: [
@@ -64,6 +74,9 @@ window.PROJECTS = [
                 slug: "operations-metrics-dashboard",
                 name: "Operations Metrics Dashboard",
                 year: "2026",
+                constraint: "Visibility",
+                outcome: "Capacity, revenue, margin and churn on one live screen for leadership.",
+                featured: true,
                 tagline: "A live dashboard tracking capacity, revenue, margin and churn across the business.",
                 detail: "A live HTML operations dashboard fed by a multi-table database. It surfaces the numbers leadership actually steers by — capacity, revenue, profitability and churn — and was architected so the same data plumbing scales to every client rather than being rebuilt each time.",
                 highlights: [
@@ -81,6 +94,8 @@ window.PROJECTS = [
                 slug: "email-enrichment-pipeline",
                 name: "Email Enrichment Pipeline",
                 year: "2026",
+                constraint: "Cost",
+                outcome: "Finds contact emails from free sources first and paid databases last.",
                 tagline: "A self-feeding profiles database that finds contact emails through a scraping waterfall.",
                 detail: "A profiles database fed passively by scraping, with a cost-ordered enrichment waterfall that only escalates to paid sources when the cheaper ones come up empty. Built to cut reliance on expensive third-party email databases while growing an owned data asset over time.",
                 highlights: [
@@ -97,6 +112,8 @@ window.PROJECTS = [
                 slug: "matrixify-csv-cleaner",
                 name: "Matrixify CSV Cleaner",
                 year: "2026",
+                constraint: "Errors",
+                outcome: "Took a Shopify import with 37 failed orders down to zero errors.",
                 tagline: "A Claude skill that pre-cleans bulk Shopify order files so imports stop failing.",
                 detail: "A custom Claude skill that fixes the validation errors which silently break Shopify bulk-order imports, then logs every order it processes so duplicate shipments get caught before they go out. It turned a fragile, error-prone upload into a repeatable one.",
                 highlights: [
@@ -113,6 +130,8 @@ window.PROJECTS = [
                 slug: "content-tracking-system",
                 name: "Content Tracking System",
                 year: "2026",
+                constraint: "Admin",
+                outcome: "Creator content filed to the right folder overnight, with nobody sorting it.",
                 tagline: "Automated ingest that files creator content to the right place, untouched by humans.",
                 detail: "An end-to-end ingest pipeline that takes raw content files dropped from several platforms and gets them to the right folder automatically — identifying the creator, reconciling inconsistent handle formats, and matching against a master list with no manual sorting.",
                 highlights: [
@@ -129,6 +148,8 @@ window.PROJECTS = [
                 slug: "capacity-tracking-system",
                 name: "Capacity Tracking System",
                 year: "2026",
+                constraint: "Capacity",
+                outcome: "A weekly read on who is over or under capacity, so only unexplained gaps need a person.",
                 tagline: "A weekly variance engine comparing projected vs. actual hours across teams.",
                 detail: "A Claude Code-built workflow that pulls time-tracking data and turns it into a weekly read on who is over or under capacity, with a triage step that hides the variances already accounted for so review time goes only to the ones that need a human.",
                 highlights: [
@@ -146,6 +167,8 @@ window.PROJECTS = [
                 slug: "instagram-scraper",
                 name: "Instagram Scraper",
                 year: "2026",
+                constraint: "Speed",
+                outcome: "Replaced a third-party scraper that took over an hour for 4,000 records.",
                 tagline: "A custom Python scraper that pushes results straight to a database.",
                 detail: "A purpose-built Python scraper that replaced a slow, unreliable third-party tool. Instead of batching results that took an hour-plus to assemble, it writes straight to a database — faster, more dependable, and fully under my control.",
                 highlights: [
@@ -162,6 +185,8 @@ window.PROJECTS = [
                 slug: "client-reporting-deck-generator",
                 name: "Client Reporting Deck Generator",
                 year: "2026",
+                constraint: "Time",
+                outcome: "On-brand client report decks from one command instead of manual formatting.",
                 tagline: "A Claude skill that produces on-brand client reporting decks.",
                 detail: "A Claude skill that assembles branded client reporting decks from source data, collapsing a manual design-and-formatting task into a single command and keeping every deck consistent with the house style.",
                 highlights: [
@@ -178,6 +203,8 @@ window.PROJECTS = [
                 slug: "daily-news-briefing",
                 name: "Daily News Briefing",
                 year: "2026",
+                constraint: "Focus",
+                outcome: "World, business and regional news in one email every morning.",
                 tagline: "A morning digest that pulls world, business and regional news to my inbox.",
                 detail: "A Python app that gathers the day's world, business and regional news, formats it into a clean briefing, and delivers it where it gets read — my inbox each morning and a team Slack channel on a schedule.",
                 highlights: [
@@ -193,6 +220,8 @@ window.PROJECTS = [
                 slug: "cold-email-engine",
                 name: "Cold Email Engine",
                 year: "2026",
+                constraint: "Revenue",
+                outcome: "Personalised cold outreach for my own consultancy at about $0.003 per lead.",
                 tagline: "A 7-stage pipeline that scrapes, verifies and AI-personalizes cold outreach at scale.",
                 detail: "An end-to-end outbound pipeline for my own consultancy. It scrapes leads to a niche spec, verifies deliverability, casualizes names, and writes a one-sentence personalized icebreaker for each prospect with Claude — then uploads only the leads worth sending to, pushes campaigns to the sending tool as drafts, and seeds them into the platform database so every reply links back automatically.",
                 highlights: [
@@ -212,6 +241,8 @@ window.PROJECTS = [
                 slug: "ai-dispatch-system",
                 name: "AI Dispatch System",
                 year: "2026",
+                constraint: "Headcount",
+                outcome: "A dumpster-rental business with ~300 active rentals and no human dispatcher.",
                 tagline: "End-to-end ops automation for a field-services company, from inbound call to payment.",
                 detail: "A full operations system for a roll-off dumpster-rental company running ~300 active rentals with no human dispatcher in the loop. A voice-AI receptionist books jobs around the clock, GPS geofencing advances each job through the pipeline, a route optimizer plans and texts drivers their daily runs, and tiered invoicing fires automatically off job completion.",
                 highlights: [

@@ -221,26 +221,17 @@ section {
 }
 
 /* ========================================
-   Year line (top edge of the window)
+   Top line (top edge of the window)
    ======================================== */
 
-.year-line {
+.top-line {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 6px;
-    z-index: 101;
-}
-
-.year-line::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
     height: 2px;
-    width: calc(var(--progress, 0) * 100%);
     background: #800020;
+    z-index: 101;
 }
 
 /* ========================================
@@ -423,117 +414,123 @@ section {
     margin-bottom: 0.75rem;
 }
 
-.projects-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-}
-
 .projects-intro {
     font-size: 1rem;
     color: #666;
-    margin: 0;
+    margin-bottom: 3rem;
 }
 
-.project-toggle {
-    flex-shrink: 0;
-    font-family: inherit;
-    font-size: 0.8125rem;
-    color: #888;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: color 0.15s;
-}
-
-.project-toggle:hover {
-    color: #111;
-}
-
-.project-list {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Expandable card */
-.project-card {
-    border-top: 1px solid #eee;
-}
-
-.project-card:last-child {
-    border-bottom: 1px solid #eee;
-}
-
-.project-summary {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-        "head chevron"
-        "tagline chevron";
-    align-items: center;
-    gap: 0.15rem 1rem;
-    padding: 1.5rem 0;
-    cursor: pointer;
-    list-style: none;
-}
-
-.project-summary::-webkit-details-marker {
-    display: none;
-}
-
-.project-head {
-    grid-area: head;
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-}
-
-.project-name {
-    font-size: 1.125rem;
+/* One-word label naming the bottleneck a project removed */
+.constraint {
+    font-size: 0.6875rem;
     font-weight: 600;
-    color: #111;
-    letter-spacing: -0.01em;
-}
-
-.project-year {
-    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: #aaa;
 }
 
-.project-tagline {
-    grid-area: tagline;
-    font-size: 0.95rem;
+/* Featured projects */
+.project-featured {
+    margin-bottom: 4rem;
+}
+
+.feature {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid #eee;
+}
+
+.feature:last-child {
+    border-bottom: 1px solid #eee;
+}
+
+.feature .constraint {
+    color: #800020;
+}
+
+.feature-name {
+    font-size: 1.375rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #111;
+}
+
+.feature-outcome {
+    font-size: 1rem;
     color: #666;
-}
-
-.project-chevron {
-    grid-area: chevron;
-    width: 9px;
-    height: 9px;
-    border-right: 1.5px solid #999;
-    border-bottom: 1.5px solid #999;
-    transform: rotate(45deg);
-    transition: transform 0.2s ease;
-}
-
-.project-card[open] .project-chevron {
-    transform: rotate(-135deg);
-}
-
-.project-detail {
-    padding: 0 0 1.75rem;
+    line-height: 1.6;
     max-width: 540px;
 }
 
-.project-detail p {
+.arrow {
+    display: inline-block;
+    font-weight: 400;
+    color: #bbb;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.feature:hover .arrow {
+    transform: translateX(4px);
+    color: #111;
+}
+
+/* Everything else, one row each */
+.project-more-title {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 0.75rem;
+}
+
+.project-list {
+    list-style: none;
+}
+
+.project-row {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    grid-template-areas:
+        "label name"
+        "label outcome";
+    column-gap: 1rem;
+    row-gap: 0.15rem;
+    padding: 1rem 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.project-list li:last-child .project-row {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.project-row .constraint {
+    grid-area: label;
+    padding-top: 0.3rem;
+}
+
+.project-row-name {
+    grid-area: name;
     font-size: 0.95rem;
+    font-weight: 500;
+    color: #111;
+}
+
+.project-row-outcome {
+    grid-area: outcome;
+    font-size: 0.875rem;
+    color: #888;
+    line-height: 1.55;
+    transition: color 0.15s;
+}
+
+.project-row:hover .project-row-name {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: #ccc;
+}
+
+.project-row:hover .project-row-outcome {
     color: #555;
-    line-height: 1.7;
-    margin-bottom: 1.25rem;
 }
 
 .project-highlights {
@@ -726,6 +723,22 @@ section {
 
     .projects-title {
         font-size: 1.75rem;
+    }
+
+    .feature-name {
+        font-size: 1.2rem;
+    }
+
+    .project-row {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "label"
+            "name"
+            "outcome";
+    }
+
+    .project-row .constraint {
+        padding-top: 0;
     }
 }
 

@@ -61,11 +61,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/styles.css?v=7">
+    <link rel="stylesheet" href="css/styles.css?v=8">
 </head>
 
 <body>
-    <div class="year-line" id="year-line" aria-hidden="true"></div>
+    <div class="top-line" aria-hidden="true"></div>
 
     <nav>
         <a href="#" class="site-name" data-tab-link="home">Aaron Tabi</a>
@@ -132,53 +132,42 @@
         <div class="tab-panel" id="tab-projects" role="tabpanel" aria-labelledby="tabbtn-projects">
             <section class="projects">
                 <h1 class="projects-title">Projects</h1>
-                <div class="projects-bar">
-                    <p class="projects-intro">A few things I've built. Click any one to read more.</p>
-                    <button class="project-toggle" id="project-toggle" aria-expanded="false">Expand all</button>
-                </div>
-                <div class="project-list" id="project-list"></div>
+                <p class="projects-intro">Systems I've built, and the constraint each one removed.</p>
+                <div class="project-featured" id="project-featured"></div>
+                <h2 class="project-more-title">More</h2>
+                <ul class="project-list" id="project-list"></ul>
             </section>
         </div>
     </main>
 
-    <script src="js/projects.js"></script>
+    <script src="js/projects.js?v=2"></script>
     <script>
         // Projects data lives in js/projects.js - edit that file to add projects or updates.
         const PROJECTS = window.PROJECTS || [];
 
-        // ===== Render project cards (expandable <details>) =====
+        // ===== Render projects: featured block, then one-line rows; each links to its page =====
         (function renderProjects() {
+            const featured = document.getElementById('project-featured');
             const list = document.getElementById('project-list');
-            if (!list) return;
+            if (!featured || !list) return;
             const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-            list.innerHTML = PROJECTS.map(p => {
-                const tags = (p.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('');
-                const highlights = (p.highlights && p.highlights.length)
-                    ? `<ul class="project-highlights">${p.highlights.map(h => `<li>${esc(h)}</li>`).join('')}</ul>`
-                    : '';
-                const ext = p.link && p.link.url
-                    ? `<a class="project-link" href="${esc(p.link.url)}" target="_blank" rel="noopener">${esc(p.link.label || 'View')} &rarr;</a>`
-                    : '';
-                const more = p.slug ? `<a class="project-link" href="project.html?p=${p.slug}">Read more &rarr;</a>` : '';
-                const links = (ext || more) ? `<div class="project-links">${ext}${more}</div>` : '';
-                return `
-                <details class="project-card" data-slug="${p.slug || ''}" data-name="${esc(p.name)}">
-                    <summary class="project-summary">
-                        <span class="project-head">
-                            <span class="project-name">${esc(p.name)}</span>
-                            ${p.year ? `<span class="project-year">${esc(p.year)}</span>` : ''}
-                        </span>
-                        <span class="project-tagline">${esc(p.tagline || '')}</span>
-                        <span class="project-chevron" aria-hidden="true"></span>
-                    </summary>
-                    <div class="project-detail">
-                        <p>${esc(p.detail || '')}</p>
-                        ${highlights}
-                        ${tags ? `<div class="project-tags">${tags}</div>` : ''}
-                        ${links}
-                    </div>
-                </details>`;
-            }).join('');
+            const href = p => `project.html?p=${encodeURIComponent(p.slug)}`;
+
+            featured.innerHTML = PROJECTS.filter(p => p.featured).map(p => `
+                <a class="feature" href="${href(p)}" data-name="${esc(p.name)}">
+                    <span class="constraint">${esc(p.constraint || '')}</span>
+                    <span class="feature-name">${esc(p.name)} <span class="arrow" aria-hidden="true">&rarr;</span></span>
+                    <span class="feature-outcome">${esc(p.outcome || p.tagline || '')}</span>
+                </a>`).join('');
+
+            list.innerHTML = PROJECTS.filter(p => !p.featured).map(p => `
+                <li>
+                    <a class="project-row" href="${href(p)}" data-name="${esc(p.name)}">
+                        <span class="constraint">${esc(p.constraint || '')}</span>
+                        <span class="project-row-name">${esc(p.name)}</span>
+                        <span class="project-row-outcome">${esc(p.outcome || p.tagline || '')}</span>
+                    </a>
+                </li>`).join('');
         })();
 
         // ===== Analytics events (GA + Umami) =====
@@ -193,32 +182,8 @@
         document.querySelectorAll('.building-line a').forEach(a =>
             a.addEventListener('click', () => track('pantheon_click')));
 
-        // ===== Expand / collapse all projects =====
-        (function projectToggle() {
-            const btn = document.getElementById('project-toggle');
-            const list = document.getElementById('project-list');
-            if (!btn || !list) return;
-            const cards = () => Array.from(list.querySelectorAll('.project-card'));
-            function sync() {
-                const all = cards();
-                const allOpen = all.length > 0 && all.every(c => c.open);
-                btn.textContent = allOpen ? 'Collapse all' : 'Expand all';
-                btn.setAttribute('aria-expanded', allOpen ? 'true' : 'false');
-            }
-            btn.addEventListener('click', () => {
-                const all = cards();
-                const allOpen = all.length > 0 && all.every(c => c.open);
-                all.forEach(c => { c.open = !allOpen; });
-                track('expand_all_toggle', { state: allOpen ? 'collapse' : 'expand' });
-                sync();
-            });
-            // <details> 'toggle' doesn't bubble — listen in the capture phase
-            list.addEventListener('toggle', e => {
-                if (e.target.open) track('project_expand', { project: e.target.dataset.name });
-                sync();
-            }, true);
-            sync();
-        })();
+        document.querySelectorAll('.feature, .project-row').forEach(a =>
+            a.addEventListener('click', () => track('project_open', { project: a.dataset.name })));
 
         // ===== Tab router (Home / Projects), hash-synced =====
         (function tabs() {
@@ -266,7 +231,6 @@
             if (m && m[1]) activateTab(m[1], { scroll: false });
         })();
     </script>
-    <script src="js/year-progress.js?v=3"></script>
     <script src="js/local-time.js?v=3"></script>
     <script src="js/contact.js"></script>
 </body>
