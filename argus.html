@@ -16,13 +16,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="How I replaced a fragile chain of Google Drive, Sheets formulas and Make automations with one system that collects, checks, files and delivers creator content for 26 brands.">
+        content="A small change in a third-party platform exposed a critical weakness in our influencer marketing operations. I designed and built Argus to replace the fragile infrastructure, restore confidence in content reporting, and automate nearly all routine file processing.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="How I Built a Content Operations Platform That Processed 122,440 Creator Files in Eight Weeks">
+    <meta property="og:title" content="When 18+ Campaigns Lost Trust in Their Content Numbers, I Rebuilt the System">
     <meta property="og:description"
-        content="How I replaced a fragile chain of Google Drive, Sheets formulas and Make automations with one system that collects, checks, files and delivers creator content for 26 brands.">
+        content="A small change in a third-party platform exposed a critical weakness in our influencer marketing operations. I designed and built Argus to replace the fragile infrastructure, restore confidence in content reporting, and automate nearly all routine file processing.">
     <meta property="og:url" content="https://aarontabi.com/argus.html">
     <meta property="og:image" content="https://aarontabi.com/assets/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -31,13 +31,13 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@aaronatabi">
-    <meta name="twitter:title" content="How I Built a Content Operations Platform That Processed 122,440 Creator Files in Eight Weeks">
-    <meta name="twitter:description" content="How I replaced a fragile chain of Google Drive, Sheets formulas and Make automations with one system that collects, checks, files and delivers creator content for 26 brands.">
+    <meta name="twitter:title" content="When 18+ Campaigns Lost Trust in Their Content Numbers, I Rebuilt the System">
+    <meta name="twitter:description" content="A small change in a third-party platform exposed a critical weakness in our influencer marketing operations. I designed and built Argus to replace the fragile infrastructure, restore confidence in content reporting, and automate nearly all routine file processing.">
     <meta name="twitter:image" content="https://aarontabi.com/assets/og-image.png">
 
     <link rel="canonical" href="https://aarontabi.com/argus.html">
 
-    <title>How I Built Argus — Aaron Tabi</title>
+    <title>When 18+ Campaigns Lost Trust in Their Content Numbers — Aaron Tabi</title>
 
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111'/><text x='50' y='68' font-family='Inter,system-ui,sans-serif' font-size='48' font-weight='600' fill='white' text-anchor='middle'>AT</text></svg>">
@@ -64,142 +64,204 @@
             <a class="back-link" href="index.html#tab=projects">&larr; All projects</a>
 
             <header>
-                <p class="cs-eyebrow">Full-Stack Engineering · Workflow Automation · Data Pipelines · AI-Assisted Development</p>
-                <h1 class="pp-title">How I Built a Content Operations Platform That Processed 122,440 Creator Files in Eight Weeks</h1>
-                <p class="pp-tagline">How I replaced a fragile chain of Google Drive, Sheets formulas, and Make automations with one system that collects, checks, files, and delivers creator content for 26 brands.</p>
+                <p class="cs-eyebrow">Full-Stack Engineering · Systems Architecture · Workflow Automation · AI-Assisted Development</p>
+                <h1 class="pp-title">When 18+ Campaigns Lost Trust in Their Content Numbers, I Rebuilt the System</h1>
+                <p class="pp-tagline">A small change in a third-party platform exposed a critical weakness in our influencer marketing operations. I designed and built Argus to replace the fragile infrastructure, restore confidence in content reporting, and automate nearly all routine file processing.</p>
             </header>
 
-            <section class="cs-glance" aria-labelledby="at-a-glance">
-                <h2 id="at-a-glance" class="cs-glance-title">At a glance</h2>
+            <section class="cs-glance" aria-labelledby="the-impact">
+                <h2 id="the-impact" class="cs-glance-title">The impact</h2>
                 <dl class="cs-stats">
-                    <div><dt>Files processed (657 GB)</dt><dd>122,440</dd></div>
-                    <div><dt>Unique pieces of content delivered</dt><dd>58,327</dd></div>
-                    <div><dt>Duplicate files caught automatically</dt><dd>20,137</dd></div>
-                    <div><dt>Files needing no per-file human action</dt><dd>~98%</dd></div>
-                    <div><dt>Creator accounts tracked</dt><dd>609,217</dd></div>
-                    <div><dt>One person's daily time on this work</dt><dd>4.5h → 1.5h</dd></div>
+                    <div><dt>Creator content files processed</dt><dd>122,440</dd></div>
+                    <div><dt>Unique content delivered to libraries</dt><dd>58,327 pieces</dd></div>
+                    <div><dt>Duplicate files detected</dt><dd>20,137</dd></div>
+                    <div><dt>Irrelevant files automatically filtered</dt><dd>42,314</dd></div>
+                    <div><dt>Files requiring no individual human action</dt><dd>~98%</dd></div>
+                    <div><dt>Reduction in one operator's daily workload (estimated)</dt><dd>~67%</dd></div>
+                    <div><dt>Client content libraries supported</dt><dd>26</dd></div>
                 </dl>
-                <p class="cs-note">Results from the first eight weeks in production, September 13 – November 9, 2026. The daily time figure is the estimate of the person who did the work.</p>
+                <p class="cs-note">Production results from September 13 to November 9, 2026.</p>
             </section>
 
             <div class="cs-body">
-                <h2>The problem</h2>
-                <p>Augmentum runs creator campaigns for around 25 brands. Creators post content, and the team has to collect it, work out whose it is, remove duplicates, file it by campaign stage, and hand it to clients.</p>
-                <p>That work ran on Google Drive, Google Sheets formulas, and Make automations. The team downloaded content from social listening platforms and uploaded it to Drive by hand. Make then parsed the filenames, looked up each creator and their stage in Sheets, and searched Drive to route the file.</p>
-                <p>It broke in predictable ways:</p>
+                <h2>The breaking point</h2>
+                <p>At Augmentum, an influencer marketing agency, we manage campaigns involving thousands of creators producing videos, photos, Stories, and other social content.</p>
+                <p>Tracking that content is essential. Campaign managers need to know how much has been produced, who produced it, which campaign it belongs to, and whether it's ready to be delivered to clients.</p>
+                <p>We already had an automated system handling much of this work.</p>
+                <p>It was built around Google Drive, Google Sheets, and Make. But as the business grew, the system was becoming increasingly difficult to maintain.</p>
+                <p>Then, one weekend, a relatively minor change exposed how fragile the infrastructure had become.</p>
+                <p>Refunnel, one of our content tracking platforms, had slightly changed its export filename convention.</p>
+                <p>Our system relied on those filenames to identify creators and determine where their content belonged.</p>
+                <p>When the naming convention changed, the assumptions behind our processing logic broke.</p>
+                <p><strong>Suddenly, the content numbers the team relied on across more than 18 campaigns could no longer be trusted.</strong></p>
+                <p>The team needed answers. How much content had actually been produced? Which creators had delivered? Which files were duplicates? What were the correct numbers?</p>
+                <p>They turned to me.</p>
+                <p>I could have updated the formulas and patched the Make scenarios. But that would have addressed the immediate symptom without solving the underlying problem.</p>
+                <p>The system was already bursting at the seams.</p>
+                <p>I decided to rebuild the infrastructure.</p>
+
+                <h2>Understanding the original system</h2>
+                <p>The previous process consisted of several interconnected workflows.</p>
+                <p>When content was uploaded to Google Drive, a Make automation detected the new files and recorded their names, IDs, and timestamps in Google Sheets.</p>
+                <p>Spreadsheet formulas then extracted usernames and dates from the filenames.</p>
+                <p>Other formulas matched those usernames to the campaign's creator list to determine their identities and stages.</p>
+                <p>A second Make automation inspected the resulting rows, searched Google Drive for the corresponding files, and routed them into the appropriate folders.</p>
+                <p>Content might be categorized as Affiliate, Pending Usage, or Unmatched, sometimes with additional geographic routing.</p>
+                <p>The result was an automated workflow, but one with important weaknesses.</p>
+                <p><strong>Filenames had become part of the business's data infrastructure.</strong> If their format changed, creator matching could fail.</p>
+                <p><strong>The logic was distributed across multiple systems.</strong> Google Sheets handled interpretation and matching, Make handled routing, and Google Drive stored the files.</p>
+                <p><strong>Every new client introduced additional maintenance.</strong> Client-specific folders, spreadsheet configurations, and automation branches made the system progressively more complex.</p>
+                <p>Worse, a failed lookup could appear to mean that a creator didn't exist, rather than that something had gone wrong with the system.</p>
+                <p>The reporting incident showed why this mattered.</p>
+                <p>When a business relies on a system to measure its performance, silent processing errors can be more damaging than visible failures.</p>
+
+                <h2>What I built: Argus</h2>
+                <p>I designed and built <strong>Argus</strong>, a centralized content operations platform that brings ingestion, creator identification, deduplication, classification, storage, review, and delivery into one application.</p>
+                <p>I was responsible for the entire project, from the initial architecture to production deployment.</p>
+                <p>I developed it using AI coding tools, while owning the product design, technical decisions, integrations, database, user interface, and implementation.</p>
+
+                <h3>1. A centralized processing engine</h3>
+                <p>Instead of spreading the processing logic across spreadsheet formulas and automation scenarios, I moved it into a purpose-built application.</p>
+                <p>Argus accepts content uploads, including large ZIP archives, and processes files in the background.</p>
+                <p>It extracts relevant metadata, identifies creators, checks campaign membership, detects duplicates, and determines what should happen to each file.</p>
+                <p>The system supports multiple export naming conventions, making it less dependent on a single external platform's formatting decisions.</p>
+                <p>Files that cannot be interpreted reliably are treated as exceptions rather than silently assigned an incorrect identity.</p>
+
+                <h3>2. Automatic content classification</h3>
+                <p>This is one of the capabilities I'm most proud of.</p>
+                <p>For every incoming file, Argus uses structured rules and creator data to answer several questions:</p>
                 <ul>
-                    <li>The same video could arrive under different filenames, so it looked new.</li>
-                    <li>Re-uploading identical content created another Drive file.</li>
-                    <li>Large creator lookups in Sheets became slow or failed.</li>
-                    <li>A failed lookup could look exactly like "creator not found."</li>
-                    <li>One carousel post produced many separate files.</li>
-                    <li>Every new client meant building another bespoke automation.</li>
+                    <li>Who created this content?</li>
+                    <li>Is the creator associated with the campaign?</li>
+                    <li>What stage is the creator currently in?</li>
+                    <li>Has this content already been received?</li>
+                    <li>Should it be delivered, excluded, grouped, or reviewed?</li>
                 </ul>
-                <p>The work took one person about <strong>4.5 hours a day</strong>, before counting the time the wider team spent catching mistakes.</p>
+                <p>Argus handles these decisions automatically whenever the available information is sufficient.</p>
+                <p>It also understands important differences between content formats.</p>
+                <p>For example, several images belonging to a carousel can represent one post, while multiple Stories published on the same day remain separate pieces of content.</p>
+                <p>Rather than applying the same assumptions to every file, the system processes content according to explicit rules.</p>
+                <p><strong>In its first eight weeks, approximately 98% of files required no individual human action.</strong></p>
 
-                <h2>What I built</h2>
-                <p>I built <strong>Argus</strong>, a purpose-built platform for the whole content operation. It went live with sign-in on September 13, 2026, the day of its first Git commit, following a local prototype. It has been in daily production use ever since.</p>
-                <p>Make still has a smaller role, reading each client's creator sheet and sending weekly folders and guest emails. The team's Sheets remain the source of truth for who is on a campaign. The logic for parsing, matching, routing, duplicates, and audit now lives in Argus.</p>
+                <h3>3. Reliable duplicate detection</h3>
+                <p>The original system depended heavily on filenames and Google Drive searches.</p>
+                <p>But two files can contain exactly the same video while having different names.</p>
+                <p>I introduced SHA-256 file hashing to identify exact duplicates using the actual file contents.</p>
+                <p>This allows Argus to recognize repeated uploads regardless of their filenames.</p>
+                <p>During the first eight weeks, it automatically caught <strong>20,137 exact duplicates</strong>, representing approximately 88.5 GB of data.</p>
+                <p>This provides a more reliable basis for counting unique content than relying on filenames alone.</p>
 
-                <h3>1. Files identified by their contents, not their names</h3>
-                <p>Argus fingerprints the actual bytes of every file with SHA-256. The same bytes for the same client count as one piece of content, however many times they arrive and whatever they are called.</p>
-                <p>It parses nine filename formats, groups carousels into one piece automatically, and never groups Stories by date. A separate look-alike check suggests possible re-encoded copies to a person.</p>
+                <h3>4. A database built for scale</h3>
+                <p>Google Sheets was previously responsible for substantial creator lookup and classification work.</p>
+                <p>I replaced that processing layer with an indexed database that can handle large creator lists and frequent synchronization.</p>
+                <p>Argus now tracks more than <strong>609,000 creator accounts</strong> across its connected client catalogue.</p>
+                <p>The agency's existing creator spreadsheets remain part of the workflow, but Argus synchronizes their information and handles the processing internally.</p>
+                <p>A particularly important design decision was preserving the last known-good data whenever a synchronization fails.</p>
+                <p>If an import is incomplete or a lookup encounters an error, Argus doesn't simply replace valid data with an incomplete result.</p>
+                <p>It records the problem and preserves reliable information until the issue can be resolved.</p>
+                <p>This makes failures visible and recoverable rather than allowing them to silently distort the operation.</p>
 
-                <h3>2. A creator database instead of formulas</h3>
-                <p>Creator lists now live in an indexed database, with up to 500,000 rows per sheet. Argus tracks <strong>609,217 creator accounts</strong> across 33 clients and runs about <strong>2,400 automated sync checks a day</strong>.</p>
-                <p>A sync failure, a missing stage, and a genuinely unknown creator are now separate outcomes. A failed sync keeps the last good list instead of replacing it.</p>
+                <h3>5. Human review for exceptions</h3>
+                <p>I designed the system to automate predictable decisions without pretending that every situation can be resolved automatically.</p>
+                <p>When Argus encounters genuinely uncertain content, it places it in a dedicated review queue.</p>
+                <p>The interface provides suggestions and streamlined controls so a team member can resolve the issue quickly.</p>
+                <p>Some decisions, such as correctly linking a creator's account, can resolve several files at once.</p>
+                <p>This approach allows humans to focus on exceptions instead of repeatedly processing files that follow known rules.</p>
 
-                <h3>3. Shared rules, with a queue for real uncertainty</h3>
-                <p>One set of rules turns a creator's stage into a destination for every client, so adding a client is configuration rather than a new automation.</p>
-                <p>Files that are genuinely uncertain go to a review queue with suggestions, keyboard shortcuts, and undo.</p>
+                <h3>6. A product people can actually use</h3>
+                <p>The interface was a major part of the project.</p>
+                <p>I didn't want the team to replace spreadsheet complexity with an equally complicated application.</p>
+                <p>Argus needed to make powerful capabilities accessible without requiring users to understand the underlying processing architecture.</p>
+                <p>I built a visual content library where team members can browse, search, filter, preview, organize, and download content.</p>
+                <p>I also built interfaces for creator records, classification reviews, affiliate tracking, sales data, system activity, and client-specific access.</p>
+                <p>Instead of navigating multiple Drive folders and spreadsheets, users can work inside one application.</p>
 
-                <h3>4. A content library clients can use directly</h3>
-                <p>The library has search, filters, bulk downloads, and share links. Clients used to pick content from a shared Google Photos folder. Their teams now get scoped, time-limited sign-ins that show only their own brand.</p>
+                <h3>7. A foundation for more valuable data</h3>
+                <p>One of my favorite outcomes is that Argus makes our existing data far more useful.</p>
+                <p>Previously, much of the information was trapped in spreadsheets, folder structures, and disconnected automations.</p>
+                <p>Now, creator identities, campaign stages, content records, processing decisions, and other operational information can be connected through a structured database.</p>
+                <p>That opens the door to richer reporting, creator performance analysis, integrations with other internal tools, and additional automation.</p>
+                <p>Argus began as a solution to a content operations problem.</p>
+                <p>But the architecture creates opportunities to build capabilities beyond the original requirements.</p>
 
-                <h3>5. A record of every decision</h3>
-                <p>Argus has logged about <strong>426,000 audit events</strong>. Syncs have recorded 647,268 individual creator changes, each with its before and after values, so the team can see who moved stage and when.</p>
+                <h2>Rebuilding trust in the numbers</h2>
+                <p>The immediate problem that triggered Argus was unreliable campaign reporting.</p>
+                <p>Running the content through Argus gave us a consistent way to identify creators, exclude irrelevant files, recognize exact duplicates, and calculate which pieces should count toward campaign content totals.</p>
+                <p>The team could examine the processed content rather than relying entirely on the outputs of fragmented automations.</p>
+                <p>In practice, this gave us the most dependable content picture we'd had from the operation.</p>
+                <p>Just as importantly, it simplified reporting going forward.</p>
+                <p>The system records how files were processed and allows people to investigate the underlying information when something appears wrong.</p>
+                <p>Instead of treating reported totals as unexplained numbers produced by spreadsheets, the team has a more traceable foundation for its content records.</p>
 
-                <h2>The results</h2>
-                <p>In its first eight weeks, Argus processed <strong>122,440 files</strong>. Fewer than half were content that belonged in a library. The rest would otherwise have cost someone time or inflated a client's numbers.</p>
+                <h2>The measurable results</h2>
+
+                <h3>67% less daily handling time</h3>
+                <p>Previously, one team member spent approximately 4.5 hours a day collecting, checking, organizing, and delivering content.</p>
+                <p>After Argus, that person estimated the work took approximately 1.5 hours.</p>
 
                 <figure class="cs-figure">
-                    <figcaption class="cs-fig-title">Less than half of incoming files were deliverable content</figcaption>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>Delivered to the library</span><span class="cs-mark-value">58,327 · 47.6%</span></div><div class="cs-bar cs-bar-sm" style="width: 100%"></div></div>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>Rejected</span><span class="cs-mark-value">42,314 · 34.6%</span></div><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 72.5%"></div></div>
+                    <figcaption class="cs-fig-title">One person's daily handling time, estimated</figcaption>
+                    <div class="cs-mark"><div class="cs-mark-head"><span>Before Argus</span><span class="cs-mark-value">~4.5 hours</span></div><div class="cs-bar cs-bar-muted" style="width: 100%"></div></div>
+                    <div class="cs-mark"><div class="cs-mark-head"><span>With Argus</span><span class="cs-mark-value">~1.5 hours</span></div><div class="cs-bar" style="width: 33.3%"></div></div>
+                </figure>
+
+                <p>That represents an estimated reduction of <strong>three hours per day, or 15 hours per five-day working week</strong>.</p>
+                <p>The estimate excludes additional time previously spent by other team members finding and correcting mistakes.</p>
+
+                <h3>More than 122,000 files processed</h3>
+                <p>In its first eight weeks, Argus processed <strong>122,440 files totaling 657 GB</strong>.</p>
+                <p>Of those, 58,327 unique content items were delivered to client libraries.</p>
+                <p>It automatically detected 20,137 exact duplicate files and filtered out 42,314 irrelevant or out-of-scope files.</p>
+
+                <figure class="cs-figure">
+                    <figcaption class="cs-fig-title">Where all 122,440 files ended up</figcaption>
+                    <div class="cs-mark"><div class="cs-mark-head"><span>Delivered to client libraries</span><span class="cs-mark-value">58,327 · 47.6%</span></div><div class="cs-bar cs-bar-sm" style="width: 100%"></div></div>
+                    <div class="cs-mark"><div class="cs-mark-head"><span>Irrelevant or out of scope</span><span class="cs-mark-value">42,314 · 34.6%</span></div><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 72.5%"></div></div>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Exact duplicates</span><span class="cs-mark-value">20,137 · 16.4%</span></div><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 34.5%"></div></div>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Extra carousel slides</span><span class="cs-mark-value">1,277 · 1.0%</span></div><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 2.2%"></div></div>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Waiting for review</span><span class="cs-mark-value">261 · 0.21%</span></div><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 0.45%"></div></div>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Set aside by a person</span><span class="cs-mark-value">124 · 0.10%</span></div><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 0.21%"></div></div>
                 </figure>
 
-                <p>The 20,137 duplicates alone came to 88.5 GB. Most rejected files came from creators who were not on that client's list.</p>
-
                 <figure class="cs-figure">
-                    <figcaption class="cs-fig-title">Why files were rejected</figcaption>
+                    <figcaption class="cs-fig-title">Why 42,314 files were filtered out</figcaption>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Creator not on that client's list</span><span class="cs-mark-value">30,438</span></div><div class="cs-bar cs-bar-sm" style="width: 100%"></div></div>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Copy of a connected client's content</span><span class="cs-mark-value">9,836</span></div><div class="cs-bar cs-bar-sm" style="width: 32.3%"></div></div>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Creator's stage not tracked</span><span class="cs-mark-value">2,040</span></div><div class="cs-bar cs-bar-sm" style="width: 6.7%"></div></div>
                 </figure>
 
-                <h3>Time saved</h3>
-                <p>The daily work fell from about 4.5 hours to about 1.5 hours. On an 8-hour day, that is a move from more than half of someone's working day to under a fifth of it.</p>
+                <h3>Routine decisions largely automated</h3>
+                <p>Only 2,227 files had a recorded individual human action.</p>
+                <p>By November 9, just 261 files—0.21% of all files processed—remained in the review queue.</p>
 
                 <figure class="cs-figure">
-                    <figcaption class="cs-fig-title">One person's daily time on content operations, down 67%</figcaption>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>Before Argus</span><span class="cs-mark-value">~4.5 hours</span></div><div class="cs-bar cs-bar-muted" style="width: 100%"></div></div>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>With Argus</span><span class="cs-mark-value">~1.5 hours</span></div><div class="cs-bar" style="width: 33.3%"></div></div>
-                </figure>
-
-                <p>That works out to about <strong>15 hours a week</strong> and about <strong>780 hours a year</strong>, assuming a five-day week. These figures are one person's estimate, not time tracking. They are also a floor, because they leave out the time the wider team spent catching duplicates, misfiled content, and content from the wrong creators.</p>
-
-                <h3>Human effort</h3>
-                <p>Most flagged files were cleared by improving the rules and re-running them, not by someone working through them one at a time.</p>
-
-                <figure class="cs-figure">
-                    <figcaption class="cs-fig-title">Share of all files that involved review or a person</figcaption>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>Flagged for review at some point</span><span class="cs-mark-value">26,325 · 21.5%</span></div><div class="cs-track"><div class="cs-fill" style="width: 21.5%"></div></div></div>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>Recorded per-file human action</span><span class="cs-mark-value">2,227 · 1.8%</span></div><div class="cs-track"><div class="cs-fill" style="width: 1.8%"></div></div></div>
+                    <figcaption class="cs-fig-title">Share of all 122,440 files</figcaption>
+                    <div class="cs-mark"><div class="cs-mark-head"><span>No individual human action</span><span class="cs-mark-value">~98%</span></div><div class="cs-track"><div class="cs-fill" style="width: 98.2%"></div></div></div>
+                    <div class="cs-mark"><div class="cs-mark-head"><span>Recorded individual human action</span><span class="cs-mark-value">2,227 · 1.8%</span></div><div class="cs-track"><div class="cs-fill" style="width: 1.8%"></div></div></div>
+                    <div class="cs-mark"><div class="cs-mark-head"><span>Still in the review queue</span><span class="cs-mark-value">261 · 0.21%</span></div><div class="cs-track"><div class="cs-fill" style="width: 0.21%"></div></div></div>
                 </figure>
 
                 <figure class="cs-figure">
                     <figcaption class="cs-fig-title">The review queue kept shrinking</figcaption>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>September 18, before the shared rules</span><span class="cs-mark-value">1,924</span></div><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 100%"></div></div>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>September 18, after the shared rules</span><span class="cs-mark-value">395</span></div><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 20.5%"></div></div>
+                    <div class="cs-mark"><div class="cs-mark-head"><span>September 18, before shared rules</span><span class="cs-mark-value">1,924</span></div><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 100%"></div></div>
+                    <div class="cs-mark"><div class="cs-mark-head"><span>September 18, after shared rules</span><span class="cs-mark-value">395</span></div><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 20.5%"></div></div>
                     <div class="cs-mark"><div class="cs-mark-head"><span>November 9</span><span class="cs-mark-value">261</span></div><div class="cs-bar cs-bar-sm" style="width: 13.6%"></div></div>
                 </figure>
 
-                <p>Decisions that link a creator's account can settle several files at once, so the 1.8% measures direct handling rather than total human input.</p>
+                <h3>One platform across multiple campaigns</h3>
+                <p>Argus processed content across 26 client libraries during its first eight weeks.</p>
+                <p>Rather than building new bespoke automations for each client, the team can configure clients inside the shared application.</p>
+                <p>The same processing logic can then be applied consistently across campaigns.</p>
 
-                <h3>Backfill and normal running</h3>
-                <p>The first two full weeks were dominated by loading the historical archive, so the weeks after them say more about everyday performance.</p>
+                <h2>Engineering for reliability</h2>
+                <p>Building Argus required solving problems that only became visible at production scale.</p>
+                <p>Large creator lists could time out during synchronization. Concurrent jobs could interfere with each other. Malformed filenames could cause unexpected parsing errors.</p>
+                <p>One import even failed because a creator's name was truncated in the middle of an emoji.</p>
+                <p>I addressed these issues through better error handling, safer text processing, paginated data transfers, job coordination, and safeguards against incomplete updates.</p>
 
-                <figure class="cs-figure">
-                    <figcaption class="cs-fig-title">Files processed per week</figcaption>
-                    <p class="cs-legend"><span><i class="cs-key cs-key-muted"></i>Launch and backfill</span><span><i class="cs-key"></i>Normal running</span></p>
-                    <div class="cs-mark cs-row"><span class="cs-row-label">Sep 7</span><div class="cs-row-plot"><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 0.9%"></div></div><span class="cs-mark-value">619</span></div>
-                    <div class="cs-mark cs-row"><span class="cs-row-label">Sep 14</span><div class="cs-row-plot"><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 100%"></div></div><span class="cs-mark-value">69,751</span></div>
-                    <div class="cs-mark cs-row"><span class="cs-row-label">Sep 21</span><div class="cs-row-plot"><div class="cs-bar cs-bar-sm cs-bar-muted" style="width: 27.8%"></div></div><span class="cs-mark-value">19,380</span></div>
-                    <div class="cs-mark cs-row"><span class="cs-row-label">Sep 28</span><div class="cs-row-plot"><div class="cs-bar cs-bar-sm" style="width: 5.5%"></div></div><span class="cs-mark-value">3,866</span></div>
-                    <div class="cs-mark cs-row"><span class="cs-row-label">Oct 5</span><div class="cs-row-plot"><div class="cs-bar cs-bar-sm" style="width: 5.3%"></div></div><span class="cs-mark-value">3,673</span></div>
-                    <div class="cs-mark cs-row"><span class="cs-row-label">Oct 12</span><div class="cs-row-plot"><div class="cs-bar cs-bar-sm" style="width: 12.3%"></div></div><span class="cs-mark-value">8,579</span></div>
-                    <div class="cs-mark cs-row"><span class="cs-row-label">Oct 19</span><div class="cs-row-plot"><div class="cs-bar cs-bar-sm" style="width: 5.6%"></div></div><span class="cs-mark-value">3,933</span></div>
-                    <div class="cs-mark cs-row"><span class="cs-row-label">Oct 26</span><div class="cs-row-plot"><div class="cs-bar cs-bar-sm" style="width: 11.3%"></div></div><span class="cs-mark-value">7,878</span></div>
-                    <div class="cs-mark cs-row"><span class="cs-row-label">Nov 2</span><div class="cs-row-plot"><div class="cs-bar cs-bar-sm" style="width: 6.5%"></div></div><span class="cs-mark-value">4,519</span></div>
-                </figure>
-
-                <p>In normal running, from September 28 to November 8, Argus took in about <strong>5,400 files</strong> and delivered about <strong>1,640 pieces</strong> a week across 24 clients. Only 22 of the 32,690 files received since September 28 are currently waiting for review.</p>
-
-                <h3>Speed</h3>
-                <dl class="cs-stats cs-stats-inline">
-                    <div><dt>Median from post going live to Argus</dt><dd>1 day</dd></div>
-                    <div><dt>Arrived within 2 days of posting</dt><dd>90%</dd></div>
-                    <div><dt>Median background ZIP import</dt><dd>2 min</dd></div>
-                </dl>
-                <p class="cs-note">Post timing covers delivered files received since September 28, and depends partly on when exports are uploaded.</p>
-
-                <h3>Reliability</h3>
                 <figure class="cs-figure">
                     <figcaption class="cs-fig-title">Runs that reached completion</figcaption>
+                    <p class="cs-legend">Final states, so recovered or restarted runs count as completed. Cancelled runs do not.</p>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Background imports</span><span class="cs-mark-value">498 of 498</span></div><div class="cs-track"><div class="cs-fill" style="width: 100%"></div></div></div>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Batches</span><span class="cs-mark-value">952 of 953</span></div><div class="cs-track"><div class="cs-fill" style="width: 99.9%"></div></div></div>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Creator checks</span><span class="cs-mark-value">119,966 of 120,062</span></div><div class="cs-track"><div class="cs-fill" style="width: 99.9%"></div></div></div>
@@ -208,52 +270,31 @@
                     <div class="cs-mark"><div class="cs-mark-head"><span>Backup content pickup</span><span class="cs-mark-value">1,057 of 1,063</span></div><div class="cs-track"><div class="cs-fill" style="width: 99.4%"></div></div></div>
                     <div class="cs-mark"><div class="cs-mark-head"><span>Sheet syncs</span><span class="cs-mark-value">7,820 of 8,023</span></div><div class="cs-track"><div class="cs-fill" style="width: 97.5%"></div></div></div>
                 </figure>
-                <p>These are final states, so anything recovered or restarted counts as completed. Runs that were cancelled, usually because a newer one replaced them, count as not completed. Availability itself was not measured.</p>
 
-                <h2>What went wrong, and what changed</h2>
-                <p>Most of the hardening came from real use.</p>
-                <ul>
-                    <li><strong>A failed save filled a shared limit.</strong> Make held on to whole-sheet payloads until it hit the organization's 500 MB limit and deactivated scenarios. I indexed the database lookups and wrote a recovery procedure.</li>
-                    <li><strong>Scheduled syncs failed early on.</strong> Of the first 22 runs inspected, 10 failed and 7 stalled, because each server instance had a single database connection. I reworked connection handling and categorized the errors.</li>
-                    <li><strong>A 64,103-row sheet kept stopping at row 29,000.</strong> A name was being cut through the middle of an emoji. Names are now cut safely, with a regression test.</li>
-                    <li><strong>A sheet timed out while Make reported success.</strong> Large sheets are now read in pages, and errors are reported honestly.</li>
-                    <li><strong>A 212-file import stopped on one oversized video.</strong> It was 3 MB over the 2 GB limit. The limit is now 3 GB, and the error names the file and the reason.</li>
-                </ul>
-                <p>The design choice these share is simple: a partial or failed sync never replaces the last good data.</p>
+                <p>I also developed automated tests around critical system behavior.</p>
+                <p>By November 9, the platform had <strong>395 passing unit and database tests</strong>.</p>
+                <p>The biggest lesson was that reliable software needs to handle failure deliberately.</p>
+                <p>A system shouldn't quietly invent certainty when the underlying data is missing or a dependency has failed.</p>
 
-                <h2>Limits worth being upfront about</h2>
-                <ul>
-                    <li><strong>No accuracy audit exists.</strong> Corrections are rare, with 700 files re-filed and 34 content types corrected, but nobody has sampled files to measure how often classification is right.</li>
-                    <li><strong>Uploads are still manual.</strong> Two admins uploaded 99.65% of files. Automating the export step is the clearest way to cut the remaining 1.5 hours.</li>
-                    <li><strong>Make remains a weak point.</strong> Stalls in November were easy to miss because Argus kept answering from the previous list. I have since made it explain why a capture did not finish.</li>
-                    <li><strong>Content type is often unknown.</strong> 59.9% of delivered content is an Instagram file with no known type, because many export filenames do not say.</li>
-                    <li><strong>Some features are new.</strong> The look-alike check has flagged 977 pairs, and none has been reviewed yet.</li>
-                </ul>
+                <h2>What I'm most proud of</h2>
+                <p>Three things stand out to me.</p>
+                <p><strong>The classification engine.</strong> Watching large volumes of content move through the system—being identified, checked, categorized, and delivered automatically—is extremely satisfying.</p>
+                <p><strong>The user experience.</strong> I transformed a process that previously required multiple tools and operational knowledge into an application designed around how the team actually works.</p>
+                <p><strong>The data infrastructure.</strong> The platform isn't limited to solving the original problem. It gives the business a foundation for more intelligent reporting, automation, and future products.</p>
 
-                <h2>My role and the build</h2>
-                <dl class="cs-stats cs-stats-inline">
-                    <div><dt>Commits in 58 days</dt><dd>381</dd></div>
-                    <div><dt>Automated tests passing</dt><dd>395 of 395</dd></div>
-                    <div><dt>Database tables</dt><dd>85</dd></div>
-                    <div><dt>Lines of production TypeScript</dt><dd>25,940</dd></div>
-                    <div><dt>Lines of test code</dt><dd>9,928</dd></div>
-                    <div><dt>Scheduled jobs</dt><dd>9</dd></div>
-                </dl>
-
-                <figure class="cs-figure">
-                    <figcaption class="cs-fig-title">Commits by month: most of the build came first, then hardening</figcaption>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>September, from the 13th</span><span class="cs-mark-value">265</span></div><div class="cs-bar cs-bar-sm" style="width: 100%"></div></div>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>October</span><span class="cs-mark-value">100</span></div><div class="cs-bar cs-bar-sm" style="width: 37.7%"></div></div>
-                    <div class="cs-mark"><div class="cs-mark-head"><span>November, to the 9th</span><span class="cs-mark-value">16</span></div><div class="cs-bar cs-bar-sm" style="width: 6%"></div></div>
-                </figure>
-
-                <p><strong>My role:</strong> I built Argus on my own, working with AI coding tools. All 381 commits are mine, and 206 of them (54%) carry a Claude co-author line. The local prototype came before Git was set up, so 58 days slightly understates the build.</p>
-                <p><strong>Technology:</strong> TypeScript, SQL, PostgreSQL, serverless functions, Cloudflare R2, Make, Apify, and a Claude (MCP) connector.</p>
+                <h2>My role and technology</h2>
+                <p><strong>Role:</strong> Sole end-to-end builder, responsible for architecture, product design, frontend, backend, database, integrations, automation, testing, and deployment.</p>
+                <p><strong>Development approach:</strong> AI-assisted software engineering, with independent ownership of product and architectural decisions.</p>
+                <p><strong>Technology:</strong> TypeScript, SQL, Cloudflare R2, Google Sheets, Google Drive, Make, Apify, APIs, and AI coding tools.</p>
 
                 <section class="cs-takeaway" aria-labelledby="takeaway">
                     <h2 id="takeaway">The takeaway</h2>
-                    <p>Argus took a process held together by filenames and formulas and made it dependable: files are known by their contents, failures are visible, and people only see what genuinely needs a decision.</p>
-                    <p>One person got about three hours of their day back, and every client's content now runs through the same system.</p>
+                    <p>The incident that started Argus looked like a broken automation.</p>
+                    <p>A third-party platform had changed its filename format, and our reporting could no longer be trusted.</p>
+                    <p>The obvious solution was to repair the formulas and move on.</p>
+                    <p>But that would have preserved the same weaknesses.</p>
+                    <p>I chose to rebuild the system around structured data, centralized business logic, automatic classification, and explicit handling of failures.</p>
+                    <p><strong>Argus turned an operational reporting problem into an opportunity to build more reliable infrastructure—and significantly reduce the work required to run it.</strong></p>
                 </section>
             </div>
         </article>

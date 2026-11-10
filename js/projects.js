@@ -31,7 +31,7 @@ window.PROJECTS = [
             },
             {
                 slug: "argus",
-                name: "How I Built a Content Operations Platform That Processed 122,440 Creator Files in Eight Weeks",
+                name: "When 18+ Campaigns Lost Trust in Their Content Numbers, I Rebuilt the System",
                 year: "2026",
                 page: "argus.html",
                 constraint: "Time",
