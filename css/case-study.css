@@ -145,7 +145,7 @@
 /* Product screenshots: wider than the text column so the UI stays legible */
 
 .cs-shot {
-    --shot-width: min(960px, calc(100vw - 4rem));
+    --shot-width: min(1200px, calc(100vw - 4rem));
     width: var(--shot-width);
     margin: 2.25rem 0 2.5rem calc((100% - var(--shot-width)) / 2);
 }
