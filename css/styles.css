@@ -484,10 +484,44 @@ section {
 
 /* Everything else, one row each */
 .project-more-title {
-    font-size: 0.8125rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
     font-weight: 500;
-    color: #888;
+    color: #666;
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.15s;
+}
+
+.project-more-title::-webkit-details-marker {
+    display: none;
+}
+
+.project-more-title::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.15s;
+}
+
+.project-more[open] .project-more-title::after {
+    margin-top: 3px;
+    transform: rotate(-135deg);
+}
+
+.project-more[open] .project-more-title {
     margin-bottom: 0.75rem;
+}
+
+.project-more-title:hover {
+    color: #111;
 }
 
 .project-list {

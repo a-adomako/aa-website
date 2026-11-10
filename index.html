@@ -61,7 +61,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/styles.css?v=9">
+    <link rel="stylesheet" href="css/styles.css?v=10">
 </head>
 
 <body>
@@ -134,13 +134,15 @@
                 <h1 class="projects-title">Projects</h1>
                 <p class="projects-intro">Systems I've built, and the constraint each one removed.</p>
                 <div class="project-featured" id="project-featured"></div>
-                <h2 class="project-more-title">More</h2>
-                <ul class="project-list" id="project-list"></ul>
+                <details class="project-more">
+                    <summary class="project-more-title">More projects <span id="project-more-count"></span></summary>
+                    <ul class="project-list" id="project-list"></ul>
+                </details>
             </section>
         </div>
     </main>
 
-    <script src="js/projects.js?v=6"></script>
+    <script src="js/projects.js?v=7"></script>
     <script>
         // Projects data lives in js/projects.js - edit that file to add projects or updates.
         const PROJECTS = window.PROJECTS || [];
@@ -169,6 +171,8 @@
                         <span class="project-row-outcome">${esc(p.outcome || p.tagline || '')}</span>
                     </a>
                 </li>`).join('');
+
+            document.getElementById('project-more-count').textContent = `(${list.children.length})`;
         })();
 
         // ===== Analytics events (GA + Umami) =====

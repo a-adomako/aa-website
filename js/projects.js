@@ -49,7 +49,6 @@ window.PROJECTS = [
                 year: "2026",
                 constraint: "Revenue",
                 outcome: "Outbound run as experiments, so campaigns get killed or scaled on reply data, not gut feel.",
-                featured: true,
                 tagline: "A full-stack data platform that tracks outbound campaign performance across every channel.",
                 detail: "A marketing data warehouse and API built on a bronze/gold architecture: raw webhook and scrape data lands in append-only tables, idempotent normalizers reshape it into a clean model, and a read API serves it. It treats outbound as experiments — ICP by Offer by Message by Channel, measured on reply rate — so campaigns can be killed or scaled on evidence rather than gut feel.",
                 highlights: [
@@ -92,7 +91,6 @@ window.PROJECTS = [
                 year: "2026",
                 constraint: "Visibility",
                 outcome: "Capacity, revenue, margin and churn on one live screen for leadership.",
-                featured: true,
                 tagline: "A live dashboard tracking capacity, revenue, margin and churn across the business.",
                 detail: "A live HTML operations dashboard fed by a multi-table database. It surfaces the numbers leadership actually steers by — capacity, revenue, profitability and churn — and was architected so the same data plumbing scales to every client rather than being rebuilt each time.",
                 highlights: [
