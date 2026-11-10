@@ -244,6 +244,62 @@
     background: #8c8c8c;
 }
 
+.cs-bar-sm {
+    height: 12px;
+    min-width: 2px;
+}
+
+.cs-row {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr 3.75rem;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.8125rem;
+    color: #666;
+}
+
+.cs-row .cs-mark-value {
+    text-align: right;
+}
+
+.cs-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+}
+
+.cs-body .cs-legend {
+    font-size: 0.8125rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+}
+
+.cs-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.cs-key {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    background: #800020;
+}
+
+.cs-key-muted {
+    background: #8c8c8c;
+}
+
+.cs-body .cs-stats-inline {
+    margin-top: 0.5rem;
+}
+
+.cs-body .cs-stats-inline + .cs-note {
+    margin-bottom: 1.5rem;
+}
+
 .cs-tooltip {
     position: fixed;
     z-index: 110;

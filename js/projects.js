@@ -7,7 +7,7 @@
 window.PROJECTS = [
             {
                 slug: "creator-discovery-platform",
-                name: "Creator Discovery Platform",
+                name: "How I Built a Creator Discovery Platform That Processed 250,000+ Campaign Deliveries in 139 Days",
                 year: "2026",
                 page: "creator-discovery-platform.html",
                 constraint: "Capacity",
@@ -28,6 +28,20 @@ window.PROJECTS = [
                 updates: [
                     { date: "July 2026", note: "Shipped the proactive layer — the 4-week capacity outlook now issues a scheduling-vs-staffing verdict with per-week fix-it levers — plus trust scoring v2: terrain-aware, per-niche rates with no threshold cliffs." }
                 ]
+            },
+            {
+                slug: "argus",
+                name: "How I Built a Content Operations Platform That Processed 122,440 Creator Files in Eight Weeks",
+                year: "2026",
+                page: "argus.html",
+                constraint: "Time",
+                outcome: "Cut one person's daily content work from about 4.5 hours to 1.5, with about 98% of files needing no per-file human action.",
+                featured: true,
+                tagline: "A platform that collects, checks, files and delivers creator content for 26 brands.",
+                detail: "Argus replaced Google Drive, Sheets formulas and most Make logic with one system that identifies files by their contents, tracks creators in an indexed database and sends only genuinely uncertain files to a person.",
+                tags: ["TypeScript", "PostgreSQL", "Cloudflare R2", "Make", "Apify"],
+                link: { label: "Read the case study", url: "argus.html" },
+                updates: []
             },
             {
                 slug: "pantheon-platform",
