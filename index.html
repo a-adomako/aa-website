@@ -61,7 +61,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/styles.css?v=8">
+    <link rel="stylesheet" href="css/styles.css?v=9">
 </head>
 
 <body>
@@ -140,7 +140,7 @@
         </div>
     </main>
 
-    <script src="js/projects.js?v=3"></script>
+    <script src="js/projects.js?v=4"></script>
     <script>
         // Projects data lives in js/projects.js - edit that file to add projects or updates.
         const PROJECTS = window.PROJECTS || [];
@@ -155,9 +155,10 @@
 
             featured.innerHTML = PROJECTS.filter(p => p.featured).map(p => `
                 <a class="feature" href="${href(p)}" data-name="${esc(p.name)}">
-                    <span class="constraint">${esc(p.constraint || '')}</span>
+                    <span class="constraint">${esc(p.constraint || '')}${p.page ? ' · Case study' : ''}</span>
                     <span class="feature-name">${esc(p.name)} <span class="arrow" aria-hidden="true">&rarr;</span></span>
                     <span class="feature-outcome">${esc(p.outcome || p.tagline || '')}</span>
+                    ${p.page ? '<span class="feature-cta">Read the case study &rarr;</span>' : ''}
                 </a>`).join('');
 
             list.innerHTML = PROJECTS.filter(p => !p.featured).map(p => `

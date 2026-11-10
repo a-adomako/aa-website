@@ -11,7 +11,7 @@ window.PROJECTS = [
                 year: "2026",
                 page: "creator-discovery-platform.html",
                 constraint: "Capacity",
-                outcome: "AI splits the discovery work across the team. People approve it instead of planning it.",
+                outcome: "Replaced fragmented spreadsheets with one shared system that processed 250,000+ campaign deliveries in 139 days.",
                 featured: true,
                 tagline: "An AI-orchestrated platform where a team discovers, vets and delivers influencer creators — and the system decides who works on what.",
                 detail: "A full-stack operations platform (Next.js + Supabase Postgres) that merged two systems into one app on one database: an AI 'apportioner' that assigns campaign work — an LLM proposes who should take what, deterministic capacity math clamps the suggestion, and a human one-click approves — and the spreadsheet-style surface where the team finds and peer-vets Instagram creators. Every action is a timestamped event, so each member's real speed, trust and niche fit are derived live from the work itself and feed the next assignment decision. Three roles (admin, discovery member, campaign manager) share one pool where the unit of state is the (client, creator) pair, making cross-discoverer dedup structural rather than procedural.",

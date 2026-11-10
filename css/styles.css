@@ -463,6 +463,13 @@ section {
     max-width: 540px;
 }
 
+.feature-cta {
+    margin-top: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #800020;
+}
+
 .arrow {
     display: inline-block;
     font-weight: 400;
