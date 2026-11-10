@@ -142,6 +142,39 @@
     margin-top: 2.5rem;
 }
 
+/* Product screenshots: wider than the text column so the UI stays legible */
+
+.cs-shot {
+    --shot-width: min(960px, calc(100vw - 4rem));
+    width: var(--shot-width);
+    margin: 2.25rem 0 2.5rem calc((100% - var(--shot-width)) / 2);
+}
+
+.cs-shot a {
+    display: block;
+    cursor: zoom-in;
+}
+
+.cs-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.cs-shot figcaption {
+    margin-top: 0.625rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: #888;
+}
+
+.cs-glance .cs-shot {
+    margin-bottom: 0;
+}
+
 /* Charts */
 
 .cs-figure {
@@ -239,6 +272,10 @@
 @media (max-width: 600px) {
     .case-study .pp-title {
         font-size: 1.625rem;
+    }
+
+    .cs-shot {
+        --shot-width: calc(100vw - 2.5rem);
     }
 
     .cs-stats {
