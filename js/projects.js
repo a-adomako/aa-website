@@ -3,11 +3,13 @@
 // To log new progress on a project, append { date: "...", note: "..." } to its `updates` array.
 // `constraint` is the one-word bottleneck the project removed; `outcome` is the plain-language result
 // shown on the Projects list. `featured: true` puts a project in the top block.
+// `page` sends the Projects list to a standalone case study instead of project.html.
 window.PROJECTS = [
             {
                 slug: "creator-discovery-platform",
                 name: "Creator Discovery Platform",
                 year: "2026",
+                page: "creator-discovery-platform.html",
                 constraint: "Capacity",
                 outcome: "AI splits the discovery work across the team. People approve it instead of planning it.",
                 featured: true,
@@ -22,7 +24,7 @@ window.PROJECTS = [
                     "Deployed on Vercel with functions co-located to the London database, so every server query is a same-region hop"
                 ],
                 tags: ["Next.js", "Supabase", "Claude API", "Postgres", "AI Orchestration"],
-                link: { label: "View", url: "" },
+                link: { label: "Read the case study", url: "creator-discovery-platform.html" },
                 updates: [
                     { date: "July 2026", note: "Shipped the proactive layer — the 4-week capacity outlook now issues a scheduling-vs-staffing verdict with per-week fix-it levers — plus trust scoring v2: terrain-aware, per-niche rates with no threshold cliffs." }
                 ]

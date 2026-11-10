@@ -140,7 +140,7 @@
         </div>
     </main>
 
-    <script src="js/projects.js?v=2"></script>
+    <script src="js/projects.js?v=3"></script>
     <script>
         // Projects data lives in js/projects.js - edit that file to add projects or updates.
         const PROJECTS = window.PROJECTS || [];
@@ -151,7 +151,7 @@
             const list = document.getElementById('project-list');
             if (!featured || !list) return;
             const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-            const href = p => `project.html?p=${encodeURIComponent(p.slug)}`;
+            const href = p => p.page || `project.html?p=${encodeURIComponent(p.slug)}`;
 
             featured.innerHTML = PROJECTS.filter(p => p.featured).map(p => `
                 <a class="feature" href="${href(p)}" data-name="${esc(p.name)}">

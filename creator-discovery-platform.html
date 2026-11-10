@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Umami Analytics -->
+    <script defer src="https://cloud.umami.is/script.js"
+        data-website-id="9504de61-ccac-483d-a3b0-4f2b205542ce"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XPM3ZPX03S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XPM3ZPX03S');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="How I replaced fragmented spreadsheets and expensive enrichment workflows with a centralized platform for influencer discovery, vetting, and campaign operations.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How I Built a Creator Discovery Platform That Processed 250,000+ Campaign Deliveries in 139 Days">
+    <meta property="og:description"
+        content="How I replaced fragmented spreadsheets and expensive enrichment workflows with a centralized platform for influencer discovery, vetting, and campaign operations.">
+    <meta property="og:url" content="https://aarontabi.com/creator-discovery-platform.html">
+    <meta property="og:image" content="https://aarontabi.com/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aaronatabi">
+    <meta name="twitter:title" content="How I Built a Creator Discovery Platform That Processed 250,000+ Campaign Deliveries in 139 Days">
+    <meta name="twitter:description" content="How I replaced fragmented spreadsheets and expensive enrichment workflows with a centralized platform for influencer discovery, vetting, and campaign operations.">
+    <meta name="twitter:image" content="https://aarontabi.com/assets/og-image.png">
+
+    <link rel="canonical" href="https://aarontabi.com/creator-discovery-platform.html">
+
+    <title>How I Built a Creator Discovery Platform — Aaron Tabi</title>
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111'/><text x='50' y='68' font-family='Inter,system-ui,sans-serif' font-size='48' font-weight='600' fill='white' text-anchor='middle'>AT</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css?v=8">
+    <link rel="stylesheet" href="css/case-study.css?v=1">
+</head>
+
+<body>
+    <div class="top-line" aria-hidden="true"></div>
+
+    <nav>
+        <a href="index.html" class="site-name">Aaron Tabi</a>
+        <div></div>
+        <a href="index.html#tab=projects" class="nav-side-link">All projects</a>
+    </nav>
+
+    <main>
+        <article class="project-page case-study">
+            <a class="back-link" href="index.html#tab=projects">&larr; All projects</a>
+
+            <header>
+                <p class="cs-eyebrow">Full-Stack Engineering · AI-Assisted Development · Workflow Automation · Product Design</p>
+                <h1 class="pp-title">How I Built a Creator Discovery Platform That Processed 250,000+ Campaign Deliveries in 139 Days</h1>
+                <p class="pp-tagline">How I replaced fragmented spreadsheets and expensive enrichment workflows with a centralized platform for influencer discovery, vetting, and campaign operations.</p>
+            </header>
+
+            <section class="cs-glance" aria-labelledby="at-a-glance">
+                <h2 id="at-a-glance" class="cs-glance-title">At a glance</h2>
+                <dl class="cs-stats">
+                    <div><dt>Creator profiles handed over</dt><dd>251,568</dd></div>
+                    <div><dt>Human vetting decisions recorded</dt><dd>208,161</dd></div>
+                    <div><dt>Unique creators in the database</dt><dd>291,230</dd></div>
+                    <div><dt>Verified email addresses</dt><dd>151,495</dd></div>
+                    <div><dt>Client campaigns supported</dt><dd>26</dd></div>
+                    <div><dt>Development</dt><dd class="cs-stat-text">Built end-to-end with AI</dd></div>
+                </dl>
+                <p class="cs-note">Results from the first 139 days in production, June 23 – November 9, 2026.</p>
+            </section>
+
+            <div class="cs-body">
+                <h2>The problem</h2>
+                <p>At Augmentum, an influencer marketing agency, discovering creators for client campaigns was a highly manual process.</p>
+                <p>Each client had separate Google Sheets for creator discovery and rejected profiles. Team members searched for potential influencers, entered their information, and passed them to another team for vetting.</p>
+                <p>Campaign managers relied on manual updates to understand progress. Team capacity was tracked separately, and productivity estimates were largely based on assumptions rather than actual work.</p>
+                <p>There was another expensive problem: finding creator email addresses.</p>
+                <p>Our previous enrichment workflow cost approximately <strong>$2,000 per month through Clay for around 25,000 emails</strong>.</p>
+                <p>As the agency scaled, we needed a better way to discover, evaluate, organize, and deliver creators without continuously increasing manual work or paying repeatedly for information we already had.</p>
+
+                <h2>What I built</h2>
+                <p>I designed and built the <strong>Augmentum Discovery Platform (ADP)</strong>, a full-stack web application that brought the creator discovery operation into one system.</p>
+                <p>I built the entire product from start to finish, using AI to accelerate development while making the architectural, product, and implementation decisions myself.</p>
+                <p>ADP wasn't just a replacement for spreadsheets. It redesigned how information and work moved through the agency.</p>
+
+                <h3>1. One shared creator database</h3>
+                <p>Instead of storing creator information separately for every client, I built a centralized database that maintains a consistent identity for each creator.</p>
+                <p>This allows the agency to reuse previously discovered creators across multiple campaigns rather than starting from scratch each time.</p>
+                <p>The database now contains over <strong>291,000 unique creators</strong>, with more than 147,000 appearing across multiple campaigns.</p>
+
+                <h3>2. A structured vetting workflow</h3>
+                <p>I replaced spreadsheet-based vetting with a dedicated interface where team members can review creators, approve or reject them, and record why.</p>
+                <p>Every decision is timestamped and traceable.</p>
+                <p>The platform also supports rejection challenges, corrections, and additional quality reviews, making the process more accountable and easier to analyze.</p>
+                <p>In its first 139 days, ADP recorded more than <strong>208,000 human vetting decisions</strong>.</p>
+
+                <h3>3. Intelligent workload allocation</h3>
+                <p>Previously, team capacity and assignments were managed through a separate process using manually entered productivity estimates.</p>
+                <p>I built workload management into ADP itself.</p>
+                <p>The platform measures individual work activity, calculates available capacity, and uses AI to recommend how tasks should be distributed.</p>
+                <p>Managers retain control over approvals, while the system handles much of the calculation and coordination.</p>
+
+                <h3>4. Automated creator email enrichment</h3>
+                <p>I replaced our previous Clay-based email discovery workflow with an enrichment pipeline integrated directly into ADP.</p>
+                <p>The process prioritizes information we already own:</p>
+                <ol>
+                    <li>Search our internal database for an existing email address.</li>
+                    <li>If unavailable, query an external creator data provider.</li>
+                    <li>Use Apify-based retrieval as an additional fallback.</li>
+                    <li>Verify retrieved addresses and store the results for future reuse.</li>
+                </ol>
+                <p>This turned creator contact information into a growing internal asset instead of treating every email discovery as a new purchase.</p>
+                <p>The system accumulated <strong>182,028 email addresses</strong>, of which <strong>151,495 were verified as deliverable</strong>.</p>
+                <p>Approximately <strong>70% of those addresses came from our own database</strong>, reducing the need for fresh external lookups.</p>
+
+                <figure class="cs-figure">
+                    <figcaption class="cs-fig-title">Most addresses were deliverable, and most were already ours</figcaption>
+                    <div class="cs-mark" tabindex="0" data-tip-value="151,495 of 182,028" data-tip-label="83% of accumulated addresses verified as deliverable">
+                        <div class="cs-mark-head"><span>Verified as deliverable</span><span class="cs-mark-value">151,495 of 182,028</span></div>
+                        <div class="cs-track"><div class="cs-fill" style="width: 83.2%"></div></div>
+                    </div>
+                    <div class="cs-mark" tabindex="0" data-tip-value="Approximately 70%" data-tip-label="of addresses came from our own database">
+                        <div class="cs-mark-head"><span>Came from our own database</span><span class="cs-mark-value">~70%</span></div>
+                        <div class="cs-track"><div class="cs-fill" style="width: 70%"></div></div>
+                    </div>
+                </figure>
+
+                <h3>5. Real-time campaign visibility</h3>
+                <p>I built dedicated interfaces for campaign managers to request creators, monitor progress, view available profiles, and export results.</p>
+                <p>Instead of waiting for someone to update a spreadsheet or send a report, managers can access operational information directly.</p>
+                <p>The platform also preserves campaign briefs, historical changes, assignments, and vetting decisions.</p>
+
+                <h2>The hardest part: Making complexity feel simple</h2>
+                <p>The most difficult challenge wasn't writing the code.</p>
+                <p>It was designing a system that an entire team could use without needing lengthy explanations.</p>
+                <p>ADP had to support different people doing different jobs: creator discovery, vetting, campaign management, and administration.</p>
+                <p>Each role needed the right information and controls without being overwhelmed by everything the system could do.</p>
+                <p>I approached this as a product design problem as much as an engineering problem.</p>
+                <p>The goal was to make complex workflows feel natural to the people performing them, while keeping the underlying data, automation, and rules consistent.</p>
+                <p>Building the system with AI accelerated implementation, but deciding how it should work—and especially how people should interact with it—remained the central challenge.</p>
+
+                <h2>The results</h2>
+                <p>In its first 139 days, ADP supported <strong>26 client campaigns</strong> and handed over more than <strong>251,000 creator profiles</strong>.</p>
+                <p>A major contributor was the ability to reuse creators across campaigns.</p>
+
+                <figure class="cs-figure">
+                    <figcaption class="cs-fig-title">Roughly half of creators and handovers involved reuse</figcaption>
+                    <div class="cs-mark" tabindex="0" data-tip-value="147,000+ of 291,230" data-tip-label="unique creators appear across multiple campaigns">
+                        <div class="cs-mark-head"><span>Creators appearing across multiple campaigns</span><span class="cs-mark-value">147,000+ of 291,230</span></div>
+                        <div class="cs-track"><div class="cs-fill" style="width: 50.5%"></div></div>
+                    </div>
+                    <div class="cs-mark" tabindex="0" data-tip-value="53%" data-tip-label="of handed-over profiles reused prior approval from another campaign">
+                        <div class="cs-mark-head"><span>Handed-over profiles reusing a prior approval</span><span class="cs-mark-value">53%</span></div>
+                        <div class="cs-track"><div class="cs-fill" style="width: 53%"></div></div>
+                    </div>
+                </figure>
+
+                <p>In the historical spreadsheet data, campaigns averaged approximately 2,585 profiles per campaign-month. During ADP's July–October period, that figure was approximately 3,501—an indicative increase of about <strong>35% in profiles handed over per campaign-month</strong>.</p>
+
+                <figure class="cs-figure">
+                    <figcaption class="cs-fig-title">About 35% more profiles handed over per campaign-month</figcaption>
+                    <div class="cs-plot">
+                        <div class="cs-mark" tabindex="0" data-tip-value="~2,585" data-tip-label="profiles per campaign-month, historical spreadsheets">
+                            <div class="cs-mark-head"><span>Historical spreadsheets</span><span class="cs-mark-value">~2,585</span></div>
+                            <div class="cs-bar cs-bar-muted" style="width: 73.8%"></div>
+                        </div>
+                        <div class="cs-mark" tabindex="0" data-tip-value="~3,501" data-tip-label="profiles per campaign-month, ADP, July–October">
+                            <div class="cs-mark-head"><span>ADP, July–October</span><span class="cs-mark-value">~3,501</span></div>
+                            <div class="cs-bar" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </figure>
+
+                <p>The comparison is not a controlled productivity measurement, but it illustrates the value of a shared creator database.</p>
+                <p>Other outcomes included:</p>
+                <ul>
+                    <li><strong>208,161 recorded human vetting decisions</strong>, providing an auditable history of review activity.</li>
+                    <li><strong>151,495 verified email addresses</strong> accumulated through the enrichment pipeline.</li>
+                    <li><strong>53% of handed-over profiles</strong> reused prior approval from another campaign without requiring another human vetting pass on the receiving campaign.</li>
+                    <li><strong>34 active user accounts</strong> across discovery, campaign management, and administrative roles.</li>
+                    <li><strong>A complete replacement of the previous Clay enrichment workflow</strong>, with existing data prioritized before paid discovery.</li>
+                </ul>
+                <p>The platform also made it possible to identify bottlenecks and quality issues that had previously been difficult to measure consistently.</p>
+
+                <h2>What I learned</h2>
+                <p>This project reinforced three principles that now shape how I approach engineering business systems.</p>
+                <p class="cs-principle">1. Redesign the workflow, don't just automate it.</p>
+                <p>Replacing every spreadsheet action with an automated equivalent would have preserved many of the original problems. A shared data model created opportunities that separate spreadsheets couldn't easily support.</p>
+                <p class="cs-principle">2. Good systems compound in value.</p>
+                <p>Every creator discovered, contact detail retrieved, and decision recorded can improve the usefulness of the platform for future campaigns.</p>
+                <p class="cs-principle">3. Technical complexity should not become user complexity.</p>
+                <p>A system can be sophisticated behind the scenes while remaining straightforward for the people who depend on it.</p>
+
+                <h2>My role and technology</h2>
+                <p><strong>My role:</strong> Sole end-to-end builder, responsible for product architecture, database design, frontend and backend development, integrations, automation, and deployment.</p>
+                <p><strong>Development approach:</strong> AI-assisted engineering, with human-led product and architectural decisions.</p>
+                <p><strong>Technology:</strong> TypeScript, SQL, Supabase/PostgreSQL, external APIs, Apify, and AI-assisted workflows.</p>
+
+                <section class="cs-takeaway" aria-labelledby="takeaway">
+                    <h2 id="takeaway">The takeaway</h2>
+                    <p>I didn't set out simply to build a creator management tool.</p>
+                    <p>I set out to solve a scaling problem inside an influencer marketing agency.</p>
+                    <p>The result was a platform that made creator information reusable, consolidated operations, introduced measurable workflows, and gave the team a single system to work from.</p>
+                </section>
+
+                <p class="cs-more"><a class="project-link" href="project.html?p=creator-discovery-platform">Technical notes and project updates &rarr;</a></p>
+            </div>
+        </article>
+    </main>
+
+    <div class="cs-tooltip" id="cs-tooltip" role="status" hidden><strong></strong><span></span></div>
+
+    <script>
+        try {
+            if (window.gtag) gtag('event', 'project_page_view', { project: 'Creator Discovery Platform' });
+            window.addEventListener('load', function () {
+                if (window.umami && umami.track) umami.track('project_page_view', { project: 'Creator Discovery Platform' });
+            });
+        } catch (e) { }
+
+        // Chart tooltips: every value is also printed beside its bar, so these only add context.
+        (function chartTooltips() {
+            const tip = document.getElementById('cs-tooltip');
+            const value = tip.querySelector('strong');
+            const label = tip.querySelector('span');
+
+            function place(x, y) {
+                const box = tip.getBoundingClientRect();
+                const left = Math.min(Math.max(8, x + 12), window.innerWidth - box.width - 8);
+                const top = y - box.height - 12 < 8 ? y + 16 : y - box.height - 12;
+                tip.style.left = left + 'px';
+                tip.style.top = top + 'px';
+            }
+            function show(mark, x, y) {
+                value.textContent = mark.dataset.tipValue;
+                label.textContent = mark.dataset.tipLabel;
+                tip.hidden = false;
+                place(x, y);
+            }
+            function hide() { tip.hidden = true; }
+
+            document.querySelectorAll('.cs-mark').forEach(function (mark) {
+                mark.addEventListener('pointermove', function (e) { show(mark, e.clientX, e.clientY); });
+                mark.addEventListener('pointerleave', hide);
+                mark.addEventListener('focus', function () {
+                    const r = mark.getBoundingClientRect();
+                    show(mark, r.left, r.top);
+                });
+                mark.addEventListener('blur', hide);
+            });
+            window.addEventListener('scroll', hide, { passive: true });
+        })();
+    </script>
+</body>
+
+</html>

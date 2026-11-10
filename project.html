@@ -67,7 +67,7 @@
 
             const tags = (p.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join('');
             const link = p.link && p.link.url
-                ? `<a class="project-link" href="${esc(p.link.url)}" target="_blank" rel="noopener">${esc(p.link.label || 'View')} &rarr;</a>`
+                ? `<a class="project-link" href="${esc(p.link.url)}"${/^https?:/.test(p.link.url) ? ' target="_blank" rel="noopener"' : ''}>${esc(p.link.label || 'View')} &rarr;</a>`
                 : '';
             const updates = (p.updates && p.updates.length)
                 ? `<section class="pp-updates">

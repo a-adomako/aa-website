@@ -1,0 +1,261 @@
+/* Long-form case study pages. Builds on styles.css. */
+
+.case-study .pp-title {
+    font-size: 2rem;
+    line-height: 1.22;
+    margin-bottom: 1.25rem;
+}
+
+.cs-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #800020;
+    line-height: 1.6;
+    margin-bottom: 0.875rem;
+}
+
+/* At a glance */
+
+.cs-glance {
+    margin-top: 2.5rem;
+}
+
+.cs-glance-title {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 0.75rem;
+}
+
+.cs-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1.5rem;
+}
+
+.cs-stats > div {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    border-top: 1px solid #eee;
+    padding: 1rem 0 1.25rem;
+}
+
+.cs-stats dt {
+    font-size: 0.8125rem;
+    color: #777;
+    line-height: 1.4;
+    margin-top: 0.25rem;
+}
+
+.cs-stats dd {
+    font-size: 1.625rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: #111;
+}
+
+.cs-stats dd.cs-stat-text {
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+}
+
+.cs-note {
+    border-top: 1px solid #eee;
+    padding-top: 0.875rem;
+    font-size: 0.8125rem;
+    color: #888;
+}
+
+/* Article body */
+
+.cs-body {
+    margin-top: 1rem;
+}
+
+.cs-body h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: #111;
+    margin: 3.5rem 0 1.125rem;
+}
+
+.cs-body h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #111;
+    margin: 2.25rem 0 0.75rem;
+}
+
+.cs-body p,
+.cs-body li {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+.cs-body p {
+    margin-bottom: 1rem;
+}
+
+.cs-body strong {
+    font-weight: 600;
+    color: #111;
+}
+
+.cs-body ol,
+.cs-body ul {
+    padding-left: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.cs-body li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+}
+
+.cs-body li::marker {
+    color: #999;
+}
+
+.cs-body .cs-principle {
+    font-weight: 600;
+    color: #111;
+    margin: 1.5rem 0 0.375rem;
+}
+
+.cs-takeaway {
+    margin-top: 3.5rem;
+    border-top: 1px solid #eee;
+}
+
+.cs-takeaway h2 {
+    margin-top: 2.25rem;
+}
+
+.cs-body .cs-more {
+    margin-top: 2.5rem;
+}
+
+/* Charts */
+
+.cs-figure {
+    margin: 2rem 0;
+    padding: 1.25rem 0 0.5rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.cs-fig-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #111;
+    margin-bottom: 1rem;
+}
+
+.cs-mark {
+    padding: 0.25rem 0;
+    margin-bottom: 0.75rem;
+    border-radius: 4px;
+    outline-offset: 2px;
+}
+
+.cs-mark:focus-visible {
+    outline: 2px solid #800020;
+}
+
+.cs-mark-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: #666;
+    margin-bottom: 0.4rem;
+}
+
+.cs-mark-value {
+    flex-shrink: 0;
+    font-weight: 600;
+    color: #111;
+    font-variant-numeric: tabular-nums;
+}
+
+.cs-track {
+    height: 10px;
+    border-radius: 4px;
+    background: #f0e3e6;
+    overflow: hidden;
+}
+
+.cs-fill {
+    height: 100%;
+    background: #800020;
+    border-radius: 0 4px 4px 0;
+}
+
+.cs-bar {
+    height: 20px;
+    background: #800020;
+    border-radius: 0 4px 4px 0;
+}
+
+.cs-bar-muted {
+    background: #8c8c8c;
+}
+
+.cs-tooltip {
+    position: fixed;
+    z-index: 110;
+    max-width: 240px;
+    padding: 0.5rem 0.75rem;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: #666;
+    pointer-events: none;
+}
+
+.cs-tooltip[hidden] {
+    display: none;
+}
+
+.cs-tooltip strong {
+    display: block;
+    font-weight: 600;
+    color: #111;
+}
+
+@media (max-width: 600px) {
+    .case-study .pp-title {
+        font-size: 1.625rem;
+    }
+
+    .cs-stats {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+    }
+
+    .cs-stats dd {
+        font-size: 1.375rem;
+    }
+
+    .cs-body h2 {
+        font-size: 1.3125rem;
+        margin-top: 3rem;
+    }
+
+    .cs-mark-head {
+        align-items: flex-start;
+    }
+}
